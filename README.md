@@ -3,7 +3,7 @@ This script is designed to iterate throught several variables which are necessar
 
 For this version the script iterates throught:
 - read length
-- minimum overlap lenght
+- minimum overlap length
 - minimum idenity %
 
 NEWBLER PARAMETERS SWEEP v1.0 
