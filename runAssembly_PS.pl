@@ -84,7 +84,7 @@ chomp $current_dir;
 
 #prep final output file seprate each data point by comma
 open(my $fh, '>', "$current_dir/$ARGV[9]_newbler_scores.txt");
-print {$fh} "Folder_name,Readlength,overlap,id,numberOfContigs,numberOfBases,avgContigSize,N50ContigSize,largestContigSize\n";
+print {$fh} "Folder_name,Readlength,Overlap,Id,numberOfContigs,numberOfBases,avgContigSize,N50ContigSize,largestContigSize\n";
 close ($fh);
 # Accessory code
 #########################################################################
