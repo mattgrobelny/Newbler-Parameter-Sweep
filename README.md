@@ -9,10 +9,10 @@ For this version the script iterates throught:
 NEWBLER PARAMETERS SWEEP v1.0 
 	
 
-Requires:\n
-	GS denovo Assembler (Newbler)
-	.sff file
-	vectortrimfiles.fasta
+Requires: 
+	- GS denovo Assembler (Newbler)
+	- .sff file
+	- vectortrimfiles.fasta
 	
 To run this program you need to write parameters values in this order: 
 	
