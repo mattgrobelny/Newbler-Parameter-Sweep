@@ -1,5 +1,10 @@
 # NEWBLER PARAMETERS SWEEP v1.0 
-My program is designed to iterate throught several variables which are necessary to run runAssembly, a program used to assemble 454 reads.
+This script is designed to iterate throught several variables which are necessary to run runAssembly, a program used to assemble 454 reads.
+
+For this version the script iterates throught:
+- read length
+- minimum overlap lenght
+- minimum idenity %
 
 NEWBLER PARAMETERS SWEEP v1.0 
 	
