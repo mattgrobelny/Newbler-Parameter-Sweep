@@ -1,8 +1,8 @@
-# Newbler-Parameter-Sweep
+# NEWBLER PARAMETERS SWEEP v1.0 
 My program is designed to iterate throught several variables which are necessary to run runAssembly, a program used to assemble 454 reads.
 
 NEWBLER PARAMETERS SWEEP v1.0 
-	Looks like you need some help...
+	
 
 Requires:\n
 	GS denovo Assembler (Newbler)
