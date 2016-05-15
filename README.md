@@ -1,0 +1,20 @@
+# Newbler-Parameter-Sweep
+My program is designed to iterate throught several variables which are necessary to run runAssembly, a program used to assemble 454 reads.
+
+NEWBLER PARAMETERS SWEEP v1.0 
+	Looks like you need some help...
+
+Requires:\n
+	GS denovo Assembler (Newbler)
+	.sff file
+	vectortrimfiles.fasta
+	
+To run this program you need to write parameters values in this order: 
+	
+	-readlength_minimum -readlength_maximum -readlength_step -min_minoverlap -max_minoverlap -step_minoverlap -min_min_id -max_min_id -step_min_id -Projectname(will also be foldername) 
+	
+EXAMPLE:
+
+	perl runAssembly_PS 15 50 5 15 50 5 95 99 1 Project1
+	
+Some parameters where hard coded in the version... sorry if you dont see the parameter you want to iterate throught...\n
