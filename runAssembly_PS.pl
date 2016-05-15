@@ -91,8 +91,8 @@ close ($fh);
 #print("running $qsub \n");
 #system($qsub);
 
-print("running $module_load \n");
-system($module_load);
+#print("running $module_load \n");
+#system($module_load);
 
 #Subroutines
 ##################################################################################################################################################
@@ -202,7 +202,7 @@ return @scores;
 #Forloop
 ##################################################################################################################################################
 #For loop for iterating through each parameter
-for ($folder_it; $folder_it>=0; $folder_it= $folder_it+1) {
+for (; $folder_it>=0; $folder_it= $folder_it+1) {
 	#print"made it throught loop1\n";
 
 	for ($readlength=$min_min_readlength; $min_min_readlength..$max_min_readlength;$readlength=$step_min_readlength+$readlength) {
