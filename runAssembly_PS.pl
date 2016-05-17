@@ -103,12 +103,12 @@ my (@paravals_internal) = @_;
 
 #default arguments to run
 my @args_def= (
+  '-o',"$paravals_internal[0]",
   '-force',
   #'-qo',
   '-cpu','0',
   '–siom', '15',
   '-nobig',
-  '-o',"$paravals_internal[0]",
   '-vs','../bothtrimfiles.fasta',
   '-vt','../bothtrimfiles.fasta',  # hard code.....
   '../mid_MID1.sff',
@@ -119,6 +119,12 @@ my @args_def= (
 
 #set up parameters to pass into system
 my @para_args=(
+'-o',"$paravals_internal[0]",
+'-force',
+#'-qo',
+'-cpu','0',
+'–siom', '15',
+'-nobig',
 	'-minlen',"$paravals_internal[1]",
 	#Minimum length of reads to use in assembly Default: 50 Min: 15
 
@@ -136,10 +142,13 @@ my @para_args=(
 
 	'-mi',"$paravals_internal[3]",
 	#Set minimum overlap identify 0 to 99
+  '-vs','../bothtrimfiles.fasta',
+  '-vt','../bothtrimfiles.fasta',  # hard code.....
+  '../mid_MID1.sff'
 );
 print"running $runAssembly with:\n
-@para_args and @args_def \n";
-system($runAssembly,@para_args,@args_def);
+@para_args \n";
+system($runAssembly,@para_args);
 
 #convert array of parameters to string
 #@string_para_args= joing(",",@para_args);
