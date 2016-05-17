@@ -27,7 +27,7 @@ To run this program you need to write parameters values in this order: \n
 	\n
 EXAMPLE:\n
 
-	perl runAssembly_PS 15 50 5 15 50 5 95 99 1 Project1 \n
+	perl runAssembly_PS.pl 15 50 5 15 50 5 95 99 1 Project1 \n
 	\n
 Some parameters where hard coded in the version... sorry if you dont see the parameter you want to iterate throught...\n
 	"};
@@ -107,8 +107,9 @@ my @args_def= ('-o',"$paravals_internal[0]",
 	#'-qo',
 	'-cpu','0',
 	'-nobig',
+  '–siom', '15', 
 	#'-vt','trim_file_adapter_primers.fasta',
-	'-vs','../bothtrimfiles.fasta',  # hard code.....
+	'-vt','../bothtrimfiles.fasta',  # hard code.....
 	'../mid_MID1.sff'); # hard code.....
 
 # relabel out from para_combo_gen to paravals
