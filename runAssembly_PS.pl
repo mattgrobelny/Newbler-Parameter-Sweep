@@ -106,7 +106,7 @@ my @args_def= ('-o',"$paravals_internal[0]",
 	'-force',
 	#'-qo',
 	'-cpu','0',
-	'-m','-nobig',
+	'-nobig',
 	#'-vt','trim_file_adapter_primers.fasta',
 	'-vs','../bothtrimfiles.fasta',  # hard code.....
 	'../mid_MID1.sff'); # hard code.....
@@ -228,7 +228,7 @@ for (; $folder_it>=0; $folder_it= $folder_it+1) {
 
 							 my @scores =col_scores($folder_name_for_it);
                push @paravals, @scores;
-               
+
 								#split into comma seperated text
 								my $Final_output=0;
 								$Final_output=join(",", @paravals);
