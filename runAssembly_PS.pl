@@ -86,6 +86,7 @@ chomp $current_dir;
 open(my $fh, '>', "$current_dir/$ARGV[9]_newbler_scores.txt");
 print {$fh} "Folder_name,Readlength,Overlap,Id,numberOfContigs,numberOfBases,avgContigSize,N50ContigSize,largestContigSize\n";
 close ($fh);
+
 # Accessory code
 #########################################################################
 #print("running $qsub \n");
