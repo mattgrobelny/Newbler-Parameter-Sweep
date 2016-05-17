@@ -235,7 +235,7 @@ for (; $folder_it>=0; $folder_it= $folder_it+1) {
 								print"Here are the results for this run: @paravals\n";
 
 								#save masterlist data to file
-								open(my $fh, '>>', "$current_dir/Project1_newbler_scores.txt");
+								open(my $fh, '>>', "$current_dir/$ARGV[9]_newbler_scores.txt");
 
 								print {$fh} "$Final_output\n";
 
