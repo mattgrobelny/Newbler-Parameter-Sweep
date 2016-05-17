@@ -226,8 +226,9 @@ for (; $folder_it>=0; $folder_it= $folder_it+1) {
 					 	 #run Newbler with paramters --> ouputs @runAssembly_paras
 						 run_Assembly(@paravals);
 
-							 push @paravals, col_scores($folder_name_for_it);
+							 my $scores =col_scores($folder_name_for_it);
 
+                push @paravals, $scores;
 								#split into comma seperated text
 								my $Final_output=0;
 								$Final_output=join(",", @paravals);
