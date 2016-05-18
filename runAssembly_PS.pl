@@ -107,7 +107,7 @@ my @args_def= (
   '-force',
   #'-qo',
   '-cpu','0',
-  #'–siom', '15',
+  '–sio',
   '-nobig',
   '-vs','../bothtrimfiles.fasta',
   #'-vt','../bothtrimfiles.fasta',  # hard code.....
