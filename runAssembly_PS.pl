@@ -104,8 +104,13 @@ my (@paravals_internal) = @_;
 #default arguments to run
 my @args_def= (
  '-o',"$paravals_internal[0]",
+  '-force',
+  #'-qo',
+  '-cpu','0',
+  #'–siom', '15',
+  '-nobig',
   '-vs','../bothtrimfiles.fasta',
-  '-vt','../bothtrimfiles.fasta',  # hard code.....
+  #'-vt','../bothtrimfiles.fasta',  # hard code.....
   '../mid_MID1.sff',
   ); # hard code.....
 
@@ -114,11 +119,6 @@ my @args_def= (
 
 #set up parameters to pass into system
 my @para_args=(
-  '-force',
-  #'-qo',
-  '-cpu','0',
-  '–siom', '15',
-  '-nobig',
 	'-minlen',"$paravals_internal[1]",
 	#Minimum length of reads to use in assembly Default: 50 Min: 15
 
