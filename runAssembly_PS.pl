@@ -102,12 +102,10 @@ sub run_Assembly {
 my (@paravals_internal) = @_;
 
 #default arguments to run
-my @args_def= (
- '-o',"$paravals_internal[0]",
+my @args_def= ('-o',"$paravals_internal[0]",
   '-force',
   #'-qo',
   '-cpu','0',
-  '–sio',
   '-nobig',
   '-vs','../bothtrimfiles.fasta',
   #'-vt','../bothtrimfiles.fasta',  # hard code.....
