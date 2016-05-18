@@ -102,15 +102,18 @@ sub run_Assembly {
 my (@paravals_internal) = @_;
 
 #default arguments to run
-my @args_def= ('-force',
+my @args_def= (
+  '-o',"$paravals_internal[0]",
+  '-vs','../bothtrimfiles.fasta',
+  '-vt','../bothtrimfiles.fasta',  # hard code.....
+  '../mid_MID1.sff',
+  
+  '-force',
 	#'-qo',
 	'-cpu','0',
   '–siom', '15',
-	'-nobig',
-  '-o',"$paravals_internal[0]",
-  '-vs','../bothtrimfiles.fasta',
-	'-vt','../bothtrimfiles.fasta',  # hard code.....
-	'../mid_MID1.sff'); # hard code.....
+	'-nobig'
+  ); # hard code.....
 
 # relabel out from para_combo_gen to paravals
 
