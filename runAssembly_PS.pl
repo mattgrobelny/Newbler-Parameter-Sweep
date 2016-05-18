@@ -106,8 +106,8 @@ my @args_def= ('-o',"$paravals_internal[0]",
 	'-force',
 	#'-qo',
 	'-cpu','0',
-	'-nobig',
   '–siom', '15', 
+	'-nobig',
 	#'-vt','trim_file_adapter_primers.fasta',
 	'-vt','../bothtrimfiles.fasta',  # hard code.....
 	'../mid_MID1.sff'); # hard code.....
