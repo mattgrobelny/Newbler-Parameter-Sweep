@@ -104,7 +104,7 @@ my (@paravals_internal) = @_;
 #default arguments to run
 my @args_def= ('-o',"$paravals_internal[0]",
   '-force',
-  #'-qo',
+  '-m',
   '-cpu','0',
   '-nobig',
   '-vs','../bothtrimfiles.fasta',
