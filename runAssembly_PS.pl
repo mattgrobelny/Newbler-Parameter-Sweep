@@ -108,7 +108,7 @@ my @args_def= ('-o',"$paravals_internal[0]",
   '-cpu','0',
   '-nobig',
   '-vs','../bothtrimfiles.fasta',
-  #'-vt','../bothtrimfiles.fasta',  # hard code.....
+  '-vt','../bothtrimfiles.fasta',  # hard code.....
   '../mid_MID1.sff',
   ); # hard code.....
 
@@ -207,13 +207,13 @@ return @scores;
 for (; $folder_it>=0; $folder_it= $folder_it+1) {
 	#print"made it throught loop1\n";
 
-	for ($readlength=$min_min_readlength; $min_min_readlength..$max_min_readlength;$readlength=$step_min_readlength+$readlength) {
+	for ($readlength=$max_min_readlength; $max_min_readlength..$min_min_readlength;$readlength=$step_min_readlength-$readlength) {
 		#print"made it throught loop2\n";
 
-		for ($overlap=$min_minoverlap;$min_minoverlap..$max_min_readlength;$overlap=$overlap+$step_minoverlap) {
+		for ($overlap=$max_minoverlap;$max_min_readlength..$min_minoverlap;$overlap=$overlap-$step_minoverlap) {
 			#print"made it throught loop3\n";
 
-			for ($id=$min_min_id; $min_min_id..$max_min_id ; $id=$id+$step_min_id) {
+			for ($id=$max_min_id; $max_min_id..$min_min_id ; $id=$id-$step_min_id) {
 				#print"made it throught loop4\n";
 
 				#set up folder names
