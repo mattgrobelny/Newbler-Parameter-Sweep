@@ -211,7 +211,7 @@ return @scores;
 			for ($id=$max_min_id; $id>=$min_min_id ; $id=$id-$step_min_id) {
 
 
-        for ($folder_it=0; $folder_it>=0; $folder_it= $folder_it+1) {
+        #for ($folder_it=0; $folder_it>=0; $folder_it= $folder_it+1) {
 
 				#set up folder names
 					$folder_name_for_it =$folder_name ."_" . $folder_it;
@@ -242,13 +242,12 @@ return @scores;
 
 								print"DONEE with @paravals\n \n starting new run...\n";
 								#  print "Done with $folder_it interation \n";
+                $folder_it= $folder_it+1
 
-			}
-		 	#$overlap += step_minoverlap;
 		}
-		#$readlength += step_min_readlength;
+	 	#$overlap += step_minoverlap;
 	}
-
+	#$readlength += step_min_readlength;
 }
 
 #Done with loop
