@@ -23,11 +23,11 @@ To run this program you need to write parameters values in this order: \n
 	\n
 	-readlength_minimum -readlength_maximum -readlength_step -min_minoverlap -max_minoverlap -step_minoverlap \n
 	same line continued... \n
-	-min_min_id -max_min_id -step_min_id -Projectname(will also be foldername) \n
+	-min_min_id -max_min_id -step_min_id -Projectname(will also be foldername -vectortrimfiles -sff_file) \n
 	\n
 EXAMPLE:\n
 
-	perl runAssembly_PS.pl 15 45 5 15 50 5 95 99 1 Project1 \n
+	perl runAssembly_PS.pl 15 45 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff \n
 	\n
 Some parameters where hard coded in the version... sorry if you dont see the parameter you want to iterate throught...\n
 	"};
@@ -107,9 +107,9 @@ my @args_def= ('-o',"$paravals_internal[0]",
   #'-m',
   '-cpu','0',
   '-nobig',
-  '-vs','../bothtrimfiles.fasta',
-  '-vt','../bothtrimfiles.fasta',  # hard code.....
-  '../mid_MID1.sff',
+  '-vs',$ARGV[10],
+  '-vt',$ARGV[10],  # hard code.....
+  $ARGV[11],
   ); # hard code.....
 
 # relabel out from para_combo_gen to paravals
@@ -204,17 +204,14 @@ return @scores;
 #Forloop
 ##################################################################################################################################################
 #For loop for iterating through each parameter
-for ($folder_it=0; $folder_it>=0; $folder_it= $folder_it+1) {
-	#print"made it throught loop1\n";
-
 	for ($readlength=$max_min_readlength; $readlength>=$min_min_readlength;$readlength=$step_min_readlength-$readlength) {
-		#print"made it throught loop2\n";
 
 		for ($overlap=$max_minoverlap;$overlap>=$max_min_readlength;$overlap=$overlap-$step_minoverlap) {
-			#print"made it throught loop3\n";
 
 			for ($id=$max_min_id; $id>=$min_min_id ; $id=$id-$step_min_id) {
-				#print"made it throught loop4\n";
+
+
+        for ($folder_it=0; $folder_it>=0; $folder_it= $folder_it+1) {
 
 				#set up folder names
 					$folder_name_for_it =$folder_name ."_" . $folder_it;
