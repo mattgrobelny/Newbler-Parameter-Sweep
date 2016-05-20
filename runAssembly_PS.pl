@@ -205,15 +205,13 @@ return @scores;
 ##################################################################################################################################################
 #For loop for iterating through each parameter
 	for ($readlength=$max_min_readlength; $readlength>=$min_min_readlength;$readlength=$step_min_readlength-$readlength) {
-		#print"made it throught loop2\n";
 
 		for ($overlap=$max_minoverlap;$overlap>=$max_min_readlength;$overlap=$overlap-$step_minoverlap) {
-			#print"made it throught loop3\n";
 
 			for ($id=$max_min_id; $id>=$min_min_id ; $id=$id-$step_min_id) {
-				#print"made it throught loop4\n";
+
+
         for ($folder_it=0; $folder_it>=0; $folder_it= $folder_it+1) {
-        	#print"made it throught loop1\n";
 
 				#set up folder names
 					$folder_name_for_it =$folder_name ."_" . $folder_it;
