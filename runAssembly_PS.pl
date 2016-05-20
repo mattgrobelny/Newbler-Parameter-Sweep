@@ -19,7 +19,20 @@ Requires:\n
 	.sff file\n
 	vectortrimfiles.fasta\n
 	\n
-To run this program you need to write parameters values in this order: \n
+  Internal Defaults for runAssembly:\n
+  -ss 1  --> seed step parameter \n\n
+
+	-sl 10 --> seed length parameter 6 to 15\n\n
+
+	-sc 10 --> seed count parameter\n\n
+
+  -force --> will overwrite files of the same name\n\n
+
+  -cpu 0 --> use all cpus\n\n
+
+  -nobig --> do not output big files (ace, bam ...)\n\n
+
+To run this program you MUST write parameter in this order: \n
 	\n
 	-readlength_minimum -readlength_maximum -readlength_step -min_minoverlap -max_minoverlap -step_minoverlap \n
 	same line continued... \n
