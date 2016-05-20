@@ -23,7 +23,7 @@ To run this program you need to write parameters values in this order: \n
 	\n
 	-readlength_minimum -readlength_maximum -readlength_step -min_minoverlap -max_minoverlap -step_minoverlap \n
 	same line continued... \n
-	-min_min_id -max_min_id -step_min_id -Projectname(will also be foldername -vectortrimfiles -sff_file) \n
+	-min_min_id -max_min_id -step_min_id -Projectname(will also be foldername) -vectortrimfiles -sff_file) \n
 	\n
 EXAMPLE:\n
 
@@ -204,50 +204,44 @@ return @scores;
 #Forloop
 ##################################################################################################################################################
 #For loop for iterating through each parameter
-	for ($readlength=$max_min_readlength; $readlength>=$min_min_readlength;$readlength=$step_min_readlength-$readlength) {
+for ($readlength=$max_min_readlength; $readlength>=$min_min_readlength;$readlength=$step_min_readlength-$readlength) {
 
-		for ($overlap=$max_minoverlap;$overlap>=$max_min_readlength;$overlap=$overlap-$step_minoverlap) {
+	for ($overlap=$max_minoverlap;$overlap>=$max_min_readlength;$overlap=$overlap-$step_minoverlap) {
 
-			for ($id=$max_min_id; $id>=$min_min_id ; $id=$id-$step_min_id) {
+		for ($id=$max_min_id; $id>=$min_min_id ; $id=$id-$step_min_id) {
 
+  		#set up folder names
+  			$folder_name_for_it =$folder_name ."_" . $folder_it;
+  			print"Folder name: $folder_name_for_it\n";
 
-        #for ($folder_it=0; $folder_it>=0; $folder_it= $folder_it+1) {
+  		#organize iterated parametes
+    		my @paravals=($folder_name_for_it,$readlength,$overlap,$id);
+    		print"Current parameters outside of runAssembly: @paravals\n";
 
-				#set up folder names
-					$folder_name_for_it =$folder_name ."_" . $folder_it;
-					print"Folder name: $folder_name_for_it\n";
+  	 	#run Newbler with paramters --> ouputs @runAssembly_paras
+  		  run_Assembly(@paravals);
 
-					#organize iterated parametes
-					 my @paravals=($folder_name_for_it,$readlength,$overlap,$id);
-					 print"Current parameters outside of runAssembly: @paravals\n";
+  		    my @scores =col_scores($folder_name_for_it);
+          push @paravals, @scores;
 
-					 	 #run Newbler with paramters --> ouputs @runAssembly_paras
-						 run_Assembly(@paravals);
+  		#split into comma seperated text
+  		  my $Final_output=0;
+  		    $Final_output=join(",", @paravals);
 
-							 my @scores =col_scores($folder_name_for_it);
-               push @paravals, @scores;
+  		      print"Here are the results for this run: @paravals\n";
 
-								#split into comma seperated text
-								my $Final_output=0;
-								$Final_output=join(",", @paravals);
+  		#save masterlist data to file
+  		  open(my $fh, '>>', "$current_dir/$ARGV[9]_newbler_scores.txt");
 
-								print"Here are the results for this run: @paravals\n";
+  		    print {$fh} "$Final_output\n";
 
-								#save masterlist data to file
-								open(my $fh, '>>', "$current_dir/$ARGV[9]_newbler_scores.txt");
+  		      close ($fh);
 
-								print {$fh} "$Final_output\n";
-
-								close ($fh);
-
-								print"DONEE with @paravals\n \n starting new run...\n";
-								#  print "Done with $folder_it interation \n";
-                $folder_it= $folder_it+1
-
-		}
-	 	#$overlap += step_minoverlap;
-	}
-	#$readlength += step_min_readlength;
+  		        print"DONEE with @paravals\n \n starting new run...\n";
+  		#  add 1 to $folder_it interation \n";
+      $folder_it= $folder_it+1
+    }
+  }
 }
 
 #Done with loop
