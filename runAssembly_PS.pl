@@ -206,7 +206,7 @@ return @scores;
 #For loop for iterating through each parameter
 for ($readlength=$max_min_readlength; $readlength>=$min_min_readlength;$readlength=$step_min_readlength-$readlength) {
 
-	for ($overlap=$max_minoverlap;$overlap>=$max_min_readlength;$overlap=$overlap-$step_minoverlap) {
+	for ($overlap=$max_minoverlap;$overlap>=$min_minoverlap;$overlap=$overlap-$step_minoverlap) {
 
 		for ($id=$max_min_id; $id>=$min_min_id ; $id=$id-$step_min_id) {
 
