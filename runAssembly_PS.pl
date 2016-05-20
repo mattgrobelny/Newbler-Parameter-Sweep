@@ -27,7 +27,7 @@ To run this program you need to write parameters values in this order: \n
 	\n
 EXAMPLE:\n
 
-	perl runAssembly_PS.pl 15 50 5 15 50 5 95 99 1 Project1 \n
+	perl runAssembly_PS.pl 15 45 5 15 50 5 95 99 1 Project1 \n
 	\n
 Some parameters where hard coded in the version... sorry if you dont see the parameter you want to iterate throught...\n
 	"};
@@ -168,7 +168,7 @@ my $largestContigSize =0;
 my $file_name="454NewblerMetrics.txt";
 
 #orient directory
-chdir "$current_dir/$folder_name_for_it/assembly/";
+chdir "$current_dir/$folder_name_for_it/";
 
 #whole metrics file variable
 my $whole_file=0;
