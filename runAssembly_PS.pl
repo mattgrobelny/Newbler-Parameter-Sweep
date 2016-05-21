@@ -217,7 +217,7 @@ return @scores;
 #Forloop
 ##################################################################################################################################################
 #For loop for iterating through each parameter
-for ($readlength=$max_min_readlength; $readlength>=$min_min_readlength;$readlength=$step_min_readlength-$readlength) {
+for ($readlength=$max_min_readlength; $readlength>=$min_min_readlength;$readlength=$readlength-$step_min_readlength) {
 
 	for ($overlap=$max_minoverlap;$overlap>=$min_minoverlap;$overlap=$overlap-$step_minoverlap) {
 
