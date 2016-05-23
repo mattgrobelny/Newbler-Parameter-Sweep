@@ -149,7 +149,7 @@ my @para_args=(
 	#Set minimum overlap identify 0 to 99
 );
 print"running $runAssembly with:\n
-@para_args and @args_def \n";
+@para_args and @args_def \n\n";
 system($runAssembly,@para_args,@args_def);
 
 #convert array of parameters to string
@@ -229,7 +229,7 @@ for ($readlength=$max_min_readlength; $readlength>=$min_min_readlength;$readleng
 
   		#organize iterated parametes
     		my @paravals=($folder_name_for_it,$readlength,$overlap,$id);
-    		print"Current parameters outside of runAssembly: @paravals\n";
+    		print"Current parameters outside of runAssembly: @paravals\n\n";
 
   	 	#run Newbler with paramters --> ouputs @runAssembly_paras
   		  run_Assembly(@paravals);
@@ -250,7 +250,7 @@ for ($readlength=$max_min_readlength; $readlength>=$min_min_readlength;$readleng
 
   		      close ($fh);
 
-  		        print"DONEE with @paravals\n \n starting new run...\n";
+  		        print"DONE with $folder_name_for_it\n \n starting new run...\n\n";
   		#  add 1 to $folder_it interation \n";
       $folder_it= $folder_it+1
     }
