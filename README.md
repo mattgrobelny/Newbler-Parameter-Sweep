@@ -1,25 +1,37 @@
-# NEWBLER PARAMETERS SWEEP v1.0 
-This script is designed to iterate throught several variables which are necessary to run runAssembly, a program used to assemble 454 reads.
+# NEWBLER PARAMETERS SWEEP v1.0
+This script is designed to iterate through several variables which are necessary to run runAssembly, a program used to assemble 454 pyrosequencing reads.
 
-For this version the script iterates throught:
-- read length
-- minimum overlap length
-- minimum idenity %
-
-NEWBLER PARAMETERS SWEEP v1.0 
-	
-
-Requires: 
+# Requires:
 - GS denovo Assembler (Newbler)
 - .sff file
 - vectortrimfiles.fasta
-	
-To run this program you need to write parameters values in this order: 
-	
-	-readlength_minimum -readlength_maximum -readlength_step -min_minoverlap -max_minoverlap -step_minoverlap -min_min_id -max_min_id -step_min_id -Projectname(will also be foldername) 
-	
-EXAMPLE:
 
-	perl runAssembly_PS 15 50 5 15 50 5 95 99 1 Project1
-	
-Some parameters where hard coded in the version... sorry if you dont see the parameter you want to iterate throught...\n
+# Internal NEWBLER runAssembly Defaults
+- ss 1  --> seed step parameter
+
+- sl 10 --> seed length parameter 6 to 15
+
+- sc 10 --> seed count parameter
+
+- force --> will overwrite files of the same name
+
+- cpu 0 --> use all cpus
+
+- nobig --> do not output big files (ace, bam ...)
+
+# For this version the script iterates through:
+- read length
+- minimum overlap length
+- minimum identity %
+
+To run this program you need to write parameters values in this order:
+
+	-readlength_minimum -readlength_maximum -readlength_step -min_minoverlap -max_minoverlap -step_minoverlap -min_min_id -max_min_id -step_min_id -Projectname(will also be foldername) -vectortrimfiles -sff_file
+
+# EXAMPLE:
+	perl runAssembly_PS 15 50 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff
+
+#Recommend running in background:
+	nohup perl runAssembly_PS 15 50 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff &
+
+Some parameters where hard coded in the version... sorry if you do not see the parameter you want to iterate through...
