@@ -1,7 +1,7 @@
 # NEWBLER PARAMETERS SWEEP v1.0
 This script is designed to iterate through several variables which are necessary to run runAssembly, a program used to assemble 454 pyrosequencing reads.
 
-## Requires:
+#### Requires:
 - GS denovo Assembler (Newbler)
 - .sff file
 - vectortrimfiles.fasta
@@ -23,6 +23,21 @@ This script is designed to iterate through several variables which are necessary
 - read length
 - minimum overlap length
 - minimum identity %
+
+## Basics of the program:
+
+1. For this program you will input the minimum, maximum and step value for:
+- read length
+- minimum overlap length
+- minimum identity %
+
+2. The program will then run parameters iterations from max values to minimum values until it fails to produce an assembly.
+3. The program will output a comma separated text file containing the folder name, parameters used and the scores for that assembly:
+
+	Folder_name,Readlength,Overlap,Id,numberOfContigs,numberOfBases,avgContigSize,N50ContigSize,largestContigSize
+	Project1_0,45,50,99,24,36197,1508,1809,8402
+	Project1_1,45,50,98,25,36844,1473,2208,8090
+	...
 
 ### To run this program you need to write parameters values in this order:
 
