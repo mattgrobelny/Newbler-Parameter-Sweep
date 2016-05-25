@@ -40,6 +40,9 @@ This script is designed to iterate through several variables which are necessary
 	Project1_1,45,50,98,25,36844,1473,2208,8090
 	...
 
+*Parameters : Readlength, Overlap, Id*
+*Scores for each assembly: numberOfContigs, numberOfBases, avgContigSize, N50ContigSize, largestContigSize*
+
 ### To run this program you need to write parameters values in this order:
 
 	-readlength_minimum -readlength_maximum -readlength_step -min_minoverlap -max_minoverlap -step_minoverlap -min_min_id -max_min_id -step_min_id -Projectname(will also be foldername) -vectortrimfiles -sff_file
