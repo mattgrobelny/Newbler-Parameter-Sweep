@@ -26,13 +26,14 @@ This script is designed to iterate through several variables which are necessary
 
 ## Basics of the program:
 
-1. For this program you will input the minimum, maximum and step value for:
+--> This program takes the minimum, maximum and step value for each parameter:
 - read length
 - minimum overlap length
 - minimum identity %
 
-2. The program will then run parameters iterations from max values to minimum values until it fails to produce an assembly.
-3. The program will output a comma separated text file containing the folder name, parameters used and the scores for that assembly:
+--> Then  it will run parameters iterations from max values to minimum values until it fails to produce an assembly.
+
+--> The program outputs a comma separated text file containing the folder name, parameters used and the scores for that assembly:
 
 	Folder_name,Readlength,Overlap,Id,numberOfContigs,numberOfBases,avgContigSize,N50ContigSize,largestContigSize
 	Project1_0,45,50,99,24,36197,1508,1809,8402
