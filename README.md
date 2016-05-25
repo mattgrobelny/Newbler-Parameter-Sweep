@@ -41,6 +41,7 @@ This script is designed to iterate through several variables which are necessary
 	...
 
 *Parameters : Readlength, Overlap, Id*
+
 *Scores for each assembly: numberOfContigs, numberOfBases, avgContigSize, N50ContigSize, largestContigSize*
 
 ### To run this program you need to write parameters values in this order:
