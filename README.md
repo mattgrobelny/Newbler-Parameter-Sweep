@@ -59,5 +59,5 @@ This script is designed to iterate through several variables which are necessary
 ## Goals for the Project:
 - [x] Iterate across several variables in runAssembly
 - [x] Output scores report for each parameter combo
-- [ ] Preform analysis of scores report (print graphs)
+- [ ] Perform analysis of scores report (print graphs)
 - [ ] Suggest recommended parameters based on scores
