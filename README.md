@@ -1,5 +1,12 @@
 # NEWBLER PARAMETERS SWEEP v1.0
-This script is designed to iterate through several variables which are necessary to run runAssembly, a program used to assemble 454 pyrosequencing reads.
+
+**Problem:** Running GS denovo Assembler (Newbler) on a .sff requires selection of several key parameter: minimum read length, minimum overlap length and minimum percent identity. For a given .sff file knowing the optimal values for these parameters is usually unclear.
+
+**Goal:** The goal of this script is to test out a range of values for Newblers key parameters and collect resulting scores for each assembly (number of Contigs, number of bases, avg contig size, N50 Contig size, largest Contig size).
+
+**What the script does:** This script is designed to iterate through several variables which are necessary to run runAssembly, a program used to assemble 454 pyrosequencing reads.
+
+**Who should use this script:** If you have 454 pyrosequencing and want to find out how your assembly changes when you systematically tweak the values for; minimum read length, minimum overlap length and minimum percent identity, then this script is for you!
 
 #### Requires:
 - GS denovo Assembler (Newbler)
@@ -57,7 +64,7 @@ This script is designed to iterate through several variables which are necessary
 *Some parameters where hard coded in the version... sorry if you do not see the parameter you want to iterate through...*
 
 ##### Goals for the Project:
-- [x] Iterate across several variables in runAssembly
+- [x] Iterate across several key variables in runAssembly
 - [x] Output scores report for each assembly and the corresponding parameter combination
 - [ ] Perform analysis on scores report (print graphs)
 - [ ] Suggest recommended assembly parameters for specific .sff file based on scores
