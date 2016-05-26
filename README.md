@@ -9,7 +9,7 @@ This script is designed to iterate through several variables which are necessary
 ### Internal NEWBLER runAssembly Defaults
 - ss 1  --> seed step parameter
 
-- sl 10 --> seed length parameter 6 to 15
+- sl 10 --> seed length parameter
 
 - sc 10 --> seed count parameter
 
@@ -19,12 +19,12 @@ This script is designed to iterate through several variables which are necessary
 
 - nobig --> do not output big files (ace, bam ...)
 
-### For this version the script iterates through:
+### For this version the script uses:
 - read length
 - minimum overlap length
 - minimum identity %
 
-## Basics of the program:
+### Basics of the program:
 
 --> This program takes the minimum, maximum and step value for each parameter:
 - read length
@@ -48,15 +48,15 @@ This script is designed to iterate through several variables which are necessary
 
 	-readlength_minimum -readlength_maximum -readlength_step -min_minoverlap -max_minoverlap -step_minoverlap -min_min_id -max_min_id -step_min_id -Projectname(will also be foldername) -vectortrimfiles -sff_file
 
-### Example:
+##### Example:
 	perl runAssembly_PS 15 50 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff
 
-### Recommend running in background:
+###### Recommend running in background:
 	nohup perl runAssembly_PS 15 50 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff &
 
 *Some parameters where hard coded in the version... sorry if you do not see the parameter you want to iterate through...*
 
-## Goals for the Project:
+##### Goals for the Project:
 - [x] Iterate across several variables in runAssembly
 - [x] Output scores report for each assembly and the corresponding parameter combination
 - [ ] Perform analysis on scores report (print graphs)
