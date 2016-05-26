@@ -58,6 +58,6 @@ This script is designed to iterate through several variables which are necessary
 
 ## Goals for the Project:
 - [x] Iterate across several variables in runAssembly
-- [x] Output scores report for each parameter combo
-- [ ] Perform analysis of scores report (print graphs)
-- [ ] Suggest recommended parameters based on scores
+- [x] Output scores report for each assembly and the corresponding parameter combination
+- [ ] Perform analysis on scores report (print graphs)
+- [ ] Suggest recommended assembly parameters for specific .sff file based on scores
