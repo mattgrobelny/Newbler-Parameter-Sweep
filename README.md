@@ -31,7 +31,7 @@ This script is designed to iterate through several variables which are necessary
 - minimum overlap length
 - minimum identity %
 
---> Then  it will run parameters iterations from max values to minimum values until it fails to produce an assembly.
+--> Then it will run parameters iterations from max values to minimum values by passing parameter combos into the runAssembly program (part of the Newbler package) until it fails to produce an assembly (usually happens at lower read length values).
 
 --> The program outputs a comma separated text file containing the folder name, parameters used and the scores for that assembly:
 
@@ -55,3 +55,9 @@ This script is designed to iterate through several variables which are necessary
 	nohup perl runAssembly_PS 15 50 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff &
 
 *Some parameters where hard coded in the version... sorry if you do not see the parameter you want to iterate through...*
+
+## Goals for the Project:
+- [x] Iterate across several variables in runAssembly
+- [x] Output scores report for each parameter combo
+- [ ] Preform analysis of scores report (print graphs)
+- [ ] Suggest recommended parameters based on scores
