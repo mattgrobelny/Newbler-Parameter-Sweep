@@ -4,9 +4,9 @@
 
 **Goal:** The goal of this script is to test out a range of values for Newblers key parameters and collect resulting scores for each assembly (number of Contigs, number of bases, avg contig size, N50 Contig size, largest Contig size).
 
-**What the script does:** This script is designed to iterate through several variables which are necessary to run runAssembly, a program used to assemble 454 pyrosequencing reads.
+**Solution/What the script does:** This script is designed to iterate through several variables which are necessary to run runAssembly, a program used to assemble 454 pyrosequencing reads.
 
-**Who should use this script:** If you have 454 pyrosequencing and want to find out how your assembly changes when you systematically tweak the values for; minimum read length, minimum overlap length and minimum percent identity, then this script is for you!
+**Who should use this script:** If you have 454 pyrosequencing data and want to find out how your assembly changes when you systematically tweak the values for; minimum read length, minimum overlap length and minimum percent identity, then this script is for you!
 
 #### Requires:
 - GS denovo Assembler (Newbler)
@@ -47,9 +47,9 @@
 	Project1_1,45,50,98,25,36844,1473,2208,8090
 	...
 
-*Parameters : Readlength, Overlap, Id*
+**INPUT-->** *Parameters : Readlength, Overlap, Id*
 
-*Scores for each assembly: numberOfContigs, numberOfBases, avgContigSize, N50ContigSize, largestContigSize*
+**OUTPUT-->** *Scores for each assembly: numberOfContigs, numberOfBases, avgContigSize, N50ContigSize, largestContigSize*
 
 #### To run this program you need to write parameters values in this order:
 
