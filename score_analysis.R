@@ -136,23 +136,11 @@ line4<-paste("Based on the size of the largestContigSize the best assembly was:"
              "That assembly was made using the following parameters:","\n", "Read length=",df4[1,2],
              "\n","Overlap length=",df4[1,3],"\n","Percent Identity=",df4[1,4])
 
-line5<-paste("Based on",projectname,"_newbler_scores.txt","...","\n", "Here are the recommended paramater groups for each score")
+line5<-paste("# Based on",projectname,"_newbler_scores.txt")
 line6<-paste("####################################################################################################")
-line7<-paste("Newbler Parameter Sweep Analysis Report")
+line7<-paste("# Newbler Parameter Sweep Analysis Report")
 
 lines_to_write<-c(line6,line7,line5,line6,line1,line2,line3,line4)
 fileConn<-file(paste(projectname,"_newbler_scores_Analysis_Report.txt"))
 writeLines(lines_to_write, fileConn)
 close(fileConn)
-
-ggplot(data=dataset, aes(x=dataset$Overlap,y=dataset[,5],group=dataset$Overlap))+
-  geom_boxplot()+
-  geom_smooth(method = "lm", se=FALSE, color="red", aes(group=1))+
-  
-  #geom_smooth(method = "glm", se=FALSE, color="red", aes(group=1))+
-  labs(title =paste("Overlap vs", names(dataset)[5]), 
-       y= paste(names(dataset)[5],"(# of contigs)"), 
-       x= "Overlap (#  of bases)")+
-  theme_bw()
-
-
