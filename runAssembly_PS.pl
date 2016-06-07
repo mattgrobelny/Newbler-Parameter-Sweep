@@ -150,7 +150,7 @@ my @para_args=(
 );
 print"running $runAssembly with:\n
 @para_args and @args_def \n\n";
-system($runAssembly,@para_args,@args_def);
+system($runAssembly,@para_args,@args_def,"2>/dev/null");
 
 #convert array of parameters to string
 #@string_para_args= joing(",",@para_args);
