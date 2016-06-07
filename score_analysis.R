@@ -1,9 +1,12 @@
 #!/usr/bin/env Rscript
 #import arguments 
-args = commandArgs(trailingOnly=FALSE)
+args = commandArgs(trailingOnly=TRUE)
 
 #planed usage
 #scores_analysis.R -Print graphs(TRUE or FALSE) -Print recommended Parameters(TRUE or FALSE) -Location of scores file to import/wd -Project Name 
+#scores_analysis.R TRUE TRUE ./ P1 
+
+
 printgraphsT_F<-args[1]
 printRecomPara<-args[2]
 location<- args[3]
@@ -14,7 +17,7 @@ library(ggplot2)
 #Import data
 #dataset <- read.csv("~/Documents/OneDrive/Antarctica Files/LS Project/runAssembly_opti/bunassemnly_opti/Mid_3_newbler_scores.txt")
 
-data<-read.csv(paste(location,projectname,"_newbler_scores.txt"))
+data<-read.csv(paste(location,"/", projectname,"_newbler_scores.txt",sep = ""))
 
 #set wd
 #setwd("~/Documents/OneDrive/Antarctica Files/LS Project/runAssembly_opti/bunassemnly_opti")
@@ -93,8 +96,8 @@ ggplot(data=dataset, aes(x=dataset$Id,y=dataset[,i],group=dataset$Id))+
 }
 
 #Test variables 
-printgraphsT_F=TRUE
-projectname<-"Mid3"
+#printgraphsT_F=TRUE
+#projectname<-"Mid3"
 #End of test variables
 
 if (printgraphsT_F==TRUE){
@@ -141,6 +144,6 @@ line6<-paste("##################################################################
 line7<-paste("# Newbler Parameter Sweep Analysis Report")
 
 lines_to_write<-c(line6,line7,line5,line6,line1,line2,line3,line4)
-fileConn<-file(paste(projectname,"_newbler_scores_Analysis_Report.txt"))
+fileConn<-file(paste(projectname,"_newbler_scores_Analysis_Report.txt",sep = ""))
 writeLines(lines_to_write, fileConn)
 close(fileConn)
