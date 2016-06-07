@@ -101,13 +101,13 @@ ggplot(data=dataset, aes(x=dataset$Id,y=dataset[,i],group=dataset$Id))+
 #End of test variables
 
 if (printgraphsT_F==TRUE){
-make_graphs(dataset,5,projectname)
+  print("Building Graphs")
+  make_graphs(dataset,5,projectname)
+  print("Done Building Graphs")
 }
 
 if(printRecomPara==TRUE){
-  #FIGURE THIS OUT 
-}
-
+print("Printing Analysis Report")
 #Summary Stats
 #stats_summary<-summary(dataset[,5:9])
 
@@ -152,3 +152,5 @@ lines_to_write<-c(line6,line7,line5,line6,line1,line2,line8,line3,line4)
 fileConn<-file(paste(projectname,"_newbler_scores_Analysis_Report.txt",sep = ""))
 writeLines(lines_to_write, fileConn)
 close(fileConn)
+print("Done Printing Analysis Report")
+}
