@@ -122,7 +122,7 @@ my @args_def= ('-o',"$paravals_internal[0]",
   '-nobig',
   '-vs',$ARGV[10],
   '-vt',$ARGV[10],  # hard code.....
-  $ARGV[11],
+  $ARGV[11],'2>/dev/null'
   ); # hard code.....
 
 # relabel out from para_combo_gen to paravals
@@ -150,7 +150,7 @@ my @para_args=(
 );
 print"running $runAssembly with:\n
 @para_args and @args_def \n\n";
-system($runAssembly,@para_args,@args_def,"2>/dev/null");
+system($runAssembly,@para_args,@args_def);
 
 #convert array of parameters to string
 #@string_para_args= joing(",",@para_args);
