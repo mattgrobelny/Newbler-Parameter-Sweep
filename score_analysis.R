@@ -111,11 +111,11 @@ print("Printing Analysis Report")
 #Summary Stats
 #stats_summary<-summary(dataset[,5:9])
 
-min_numberOfContigs_parameters<-which(dataset$numberOfContigs==min(dataset$numberOfContigs))
-max_numberOfBases_parameters<-which(dataset$numberOfBases==max(dataset$numberOfBases))
-max_avgContigSize_parameters<-which(dataset$avgContigSize==max(dataset$avgContigSize))
-max_N50ContigSize_parameters<-which(dataset$N50ContigSize==max(dataset$N50ContigSize))
-max_largestContigSize_parameters<-which(dataset$largestContigSize==max(dataset$largestContigSize))
+min_numberOfContigs_parameters<-which(dataset$numberOfContigs==min(dataset$numberOfContigs,na.rm=TRUE))
+max_numberOfBases_parameters<-which(dataset$numberOfBases==max(dataset$numberOfBases,na.rm=TRUE))
+max_avgContigSize_parameters<-which(dataset$avgContigSize==max(dataset$avgContigSize,na.rm=TRUE))
+max_N50ContigSize_parameters<-which(dataset$N50ContigSize==max(dataset$N50ContigSize,na.rm=TRUE))
+max_largestContigSize_parameters<-which(dataset$largestContigSize==max(dataset$largestContigSize,na.rm=TRUE))
 
 df1<-data.frame(dataset[min_numberOfContigs_parameters,1:4])
 df2<-data.frame(dataset[max_numberOfBases_parameters,1:4])
