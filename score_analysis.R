@@ -124,23 +124,23 @@ df4<-data.frame(dataset[max_largestContigSize_parameters,1:4])
 df5<-data.frame(dataset[max_avgContigSize_parameters,1:4])
 
 #Make text output
-line1<-paste("Based on lowest number of contigs -->",min(dataset$numberOfContigs),"(# of contigs)\n", "- The best assembly was:",df1[1,1],"\n",
+line1<-paste("Based on lowest number of contigs -->",min(dataset$numberOfContigs,na.rm=TRUE),"(# of contigs)\n", "- The best assembly was:",df1[1,1],"\n",
              "- That assembly was made using the following parameters:","\n", " Read length=",df1[1,2],
              "\n"," Overlap length=",df1[1,3],"\n"," Percent Identity=",df1[1,4])
 
-line2<-paste("Based on largest number of total bases -->",max(dataset$numberOfBases),"(# of bases)\n", "- The best assembly was:",df2[1,1],"\n",
+line2<-paste("Based on largest number of total bases -->",max(dataset$numberOfBases,na.rm=TRUE),"(# of bases)\n", "- The best assembly was:",df2[1,1],"\n",
              "- That assembly was made using the following parameters:","\n", " Read length=",df2[1,2],
              "\n"," Overlap length=",df2[1,3],"\n"," Percent Identity=",df2[1,4])
 
-line3<-paste("Based on largest N50ContigSize -->",max(dataset$N50ContigSize),"(# of bases)\n", "- The best assembly was:",df3[1,1],"\n",
+line3<-paste("Based on largest N50ContigSize -->",max(dataset$N50ContigSize,na.rm=TRUE),"(# of bases)\n", "- The best assembly was:",df3[1,1],"\n",
              "- That assembly was made using the following parameters:","\n", " Read length=",df3[1,2],
              "\n"," Overlap length=",df3[1,3],"\n"," Percent Identity=",df3[1,4])
 
-line4<-paste("Based on the size of the largestContigSize -->",max(dataset$largestContigSize),"(# of bases)\n","- The best assembly was:",df4[1,1],"\n",
+line4<-paste("Based on the size of the largestContigSize -->",max(dataset$largestContigSize,na.rm=TRUE),"(# of bases)\n","- The best assembly was:",df4[1,1],"\n",
              "- That assembly was made using the following parameters:","\n", " Read length=",df4[1,2],
              "\n"," Overlap length=",df4[1,3],"\n"," Percent Identity=",df4[1,4])
 
-line8<-paste("Based on highest average contig size -->",max(dataset$avgContigSize),"(# of bases)\n", "- The best assembly was:",df5[1,1],"\n",
+line8<-paste("Based on highest average contig size -->",max(dataset$avgContigSize,na.rm=TRUE),"(# of bases)\n", "- The best assembly was:",df5[1,1],"\n",
              "- That assembly was made using the following parameters:","\n", " Read length=",df5[1,2],
              "\n"," Overlap length=",df5[1,3],"\n"," Percent Identity=",df5[1,4])
 
