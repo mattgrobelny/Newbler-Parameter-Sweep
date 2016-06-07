@@ -3,8 +3,8 @@
 args = commandArgs(trailingOnly=TRUE)
 
 #planed usage
-#scores_analysis.R -Print graphs(TRUE or FALSE) -Print recommended Parameters(TRUE or FALSE) -Location of scores file to import/wd -Project Name 
-#scores_analysis.R TRUE TRUE ./ P1 
+#Rscript scores_analysis.R -Print graphs(TRUE or FALSE) -Print recommended Parameters(TRUE or FALSE) -Location of scores file to import/wd -Project Name 
+#Rscript ~/Scripts/github/score_analysis.R TRUE TRUE ~/Scripts/github/Mid1_run Mid1_run
 
 
 printgraphsT_F<-args[1]
@@ -117,33 +117,38 @@ max_avgContigSize_parameters<-which(dataset$avgContigSize==max(dataset$avgContig
 max_N50ContigSize_parameters<-which(dataset$N50ContigSize==max(dataset$N50ContigSize))
 max_largestContigSize_parameters<-which(dataset$largestContigSize==max(dataset$largestContigSize))
 
-df1<-data.frame(dataset[max_numberOfBases_parameters,1:4])
+df1<-data.frame(dataset[min_numberOfContigs_parameters,1:4])
 df2<-data.frame(dataset[max_numberOfBases_parameters,1:4])
 df3<-data.frame(dataset[max_N50ContigSize_parameters,1:4])
 df4<-data.frame(dataset[max_largestContigSize_parameters,1:4])
+df5<-data.frame(dataset[max_avgContigSize_parameters,1:4])
 
 #Make text output
-line1<-paste("Based on lowest number of contigs the best assembly was:",df1[1,1],"\n",
+line1<-paste("Based on lowest number of contigs -->",min(dataset$numberOfContigs),"(# of contigs).\n", " the best assembly was:",df1[1,1],"\n",
              "That assembly was made using the following parameters:","\n", "Read length=",df1[1,2],
              "\n","Overlap length=",df1[1,3],"\n","Percent Identity=",df1[1,4])
 
-line2<-paste("Based on largest number of total bases, the best assembly was:",df2[1,1],"\n",
+line2<-paste("Based on largest number of total bases -->",max(dataset$numberOfBases),".(# of bases).\n", "The best assembly was:",df2[1,1],"\n",
              "That assembly was made using the following parameters:","\n", "Read length=",df2[1,2],
              "\n","Overlap length=",df2[1,3],"\n","Percent Identity=",df2[1,4])
 
-line3<-paste("Based on largest N50ContigSize, the best assembly was:",df3[1,1],"\n",
+line3<-paste("Based on largest N50ContigSize -->",max(dataset$N50ContigSize),".(# of bases).\n", "the best assembly was:",df3[1,1],"\n",
              "That assembly was made using the following parameters:","\n", "Read length=",df3[1,2],
              "\n","Overlap length=",df3[1,3],"\n","Percent Identity=",df3[1,4])
 
-line4<-paste("Based on the size of the largestContigSize the best assembly was:",df4[1,1],"\n",
+line4<-paste("Based on the size of the largestContigSize -->",max(dataset$largestContigSize),"(# of bases).\n","The best assembly was:",df4[1,1],"\n",
              "That assembly was made using the following parameters:","\n", "Read length=",df4[1,2],
              "\n","Overlap length=",df4[1,3],"\n","Percent Identity=",df4[1,4])
+
+line8<-paste("Based on highest average contig size value -->",max(dataset$avgContigSize),"(# of bases).\n", " the best assembly was:",df5[1,1],"\n",
+             "That assembly was made using the following parameters:","\n", "Read length=",df5[1,2],
+             "\n","Overlap length=",df5[1,3],"\n","Percent Identity=",df5[1,4])
 
 line5<-paste("# Based on",projectname,"_newbler_scores.txt")
 line6<-paste("####################################################################################################")
 line7<-paste("# Newbler Parameter Sweep Analysis Report")
 
-lines_to_write<-c(line6,line7,line5,line6,line1,line2,line3,line4)
+lines_to_write<-c(line6,line7,line5,line6,line1,line2,line8,line3,line4)
 fileConn<-file(paste(projectname,"_newbler_scores_Analysis_Report.txt",sep = ""))
 writeLines(lines_to_write, fileConn)
 close(fileConn)
