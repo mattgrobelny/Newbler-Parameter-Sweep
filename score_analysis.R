@@ -17,7 +17,7 @@ library(ggplot2)
 #Import data
 #dataset <- read.csv("~/Documents/OneDrive/Antarctica Files/LS Project/runAssembly_opti/bunassemnly_opti/Mid_3_newbler_scores.txt")
 
-data<-read.csv(paste(location,"/", projectname,"_newbler_scores.txt",sep = ""))
+dataset<-read.csv(paste(location,"/", projectname,"_newbler_scores.txt",sep = ""))
 
 #set wd
 #setwd("~/Documents/OneDrive/Antarctica Files/LS Project/runAssembly_opti/bunassemnly_opti")
@@ -109,7 +109,7 @@ if(printRecomPara==TRUE){
 }
 
 #Summary Stats
-stats_summary<-summary(dataset[,5:9])
+#stats_summary<-summary(dataset[,5:9])
 
 min_numberOfContigs_parameters<-which(dataset$numberOfContigs==min(dataset$numberOfContigs))
 max_numberOfBases_parameters<-which(dataset$numberOfBases==max(dataset$numberOfBases))
