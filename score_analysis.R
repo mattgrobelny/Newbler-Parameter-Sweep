@@ -17,7 +17,7 @@ library(ggplot2)
 #Import data
 #dataset <- read.csv("~/Documents/OneDrive/Antarctica Files/LS Project/runAssembly_opti/bunassemnly_opti/Mid_3_newbler_scores.txt")
 
-dataset<-read.csv(paste(location,"/", projectname,"_newbler_scores.txt",sep = ""))
+dataset<-read.csv(paste(location,projectname,"_newbler_scores.txt",sep = ""))
 
 #set wd
 #setwd("~/Documents/OneDrive/Antarctica Files/LS Project/runAssembly_opti/bunassemnly_opti")
