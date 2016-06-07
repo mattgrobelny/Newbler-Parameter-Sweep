@@ -33,14 +33,14 @@
 
 #### Basics of the program:
 
---> This program takes the minimum, maximum and step value for each parameter:
+1. This program takes the minimum, maximum and step value for each parameter:
 - read length
 - minimum overlap length
 - minimum identity %
 
---> Then it will run parameters iterations from max values to minimum values by passing parameter combos into the runAssembly program (part of the Newbler package) until it fails to produce an assembly (usually happens at lower read length values).
+2. Then it will run parameters iterations from max values to minimum values by passing parameter combos into the runAssembly program (part of the Newbler package) until it fails to produce an assembly (usually happens at lower read length values).
 
---> The program outputs a comma separated text file containing the folder name, parameters used and the scores for that assembly:
+3. The program outputs a comma separated text file containing the folder name, parameters used and the scores for that assembly:
 
 	Folder_name,Readlength,Overlap,Id,numberOfContigs,numberOfBases,avgContigSize,N50ContigSize,largestContigSize
 	Project1_0,45,50,99,24,36197,1508,1809,8402
@@ -51,20 +51,26 @@
 
 **OUTPUT-->** *Scores for each assembly: numberOfContigs, numberOfBases, avgContigSize, N50ContigSize, largestContigSize*
 
+4. The script will preform basic data analysis for you if the last two parameters passed in a "TRUE TRUE"(look at example below). First "TRUE" prints graphs, Second "TRUE" prints recommend assembly parameters based on each score.
+
+Data analysis consists:
+- 14 boxplot graphs (comparing each input parameter against each score)
+- Analysis report, outputs a textual report of best parameter combinations for each score.
+
 #### To run this program you need to write parameters values in this order:
 
-	-readlength_minimum -readlength_maximum -readlength_step -min_minoverlap -max_minoverlap -step_minoverlap -min_min_id -max_min_id -step_min_id -Projectname(will also be foldername) -vectortrimfiles -sff_file
+	-readlength_minimum -readlength_maximum -readlength_step -min_minoverlap -max_minoverlap -step_minoverlap -min_min_id -max_min_id -step_min_id -Projectname(will also be foldername) -vectortrimfiles -sff_file -PrintGraphs (TRUE or FALSE) -PrintRecommendedParameters (TRUE or FALSE)
 
 ##### Example:
-	perl runAssembly_PS 15 50 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff
+	perl runAssembly_PS 15 45 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff TRUE TRUE
 
 ##### Recommend running in background:
-	nohup perl runAssembly_PS 15 50 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff &
+	nohup perl runAssembly_PS 15 45 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff TRUE TRUE &
 
 *Some parameters where hard coded in the version... sorry if you do not see the parameter you want to iterate through...*
 
 ##### Goals for the Project:
 - [x] Iterate across several key variables in runAssembly
 - [x] Output scores report for each assembly and the corresponding parameter combination
-- [ ] Perform analysis on scores report (print graphs)
-- [ ] Suggest recommended assembly parameters for specific .sff file based on scores
+- [x] Perform analysis on scores report (print graphs)
+- [x] Suggest recommended assembly parameters for specific .sff file based on scores
