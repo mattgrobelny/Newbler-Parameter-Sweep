@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #import arguments 
-args = commandArgs(trailingOnly=TRUE)
+args = commandArgs(trailingOnly=FALSE)
 
 #planed usage
 #scores_analysis.R -Print graphs(TRUE or FALSE) -Print recommended Parameters(TRUE or FALSE) -Location of scores file to import/wd -Project Name 
@@ -12,14 +12,14 @@ projectname<-args[4]
 #set libraries
 library(ggplot2)
 #Import data
-dataset <- read.csv("~/Documents/OneDrive/Antarctica Files/LS Project/runAssembly_opti/bunassemnly_opti/Mid_3_newbler_scores.txt")
+#dataset <- read.csv("~/Documents/OneDrive/Antarctica Files/LS Project/runAssembly_opti/bunassemnly_opti/Mid_3_newbler_scores.txt")
 
-#data<-read.csv(paste(location,projectname,"_newbler_scores.txt")
+data<-read.csv(paste(location,projectname,"_newbler_scores.txt"))
 
 #set wd
-setwd("~/Documents/OneDrive/Antarctica Files/LS Project/runAssembly_opti/bunassemnly_opti")
+#setwd("~/Documents/OneDrive/Antarctica Files/LS Project/runAssembly_opti/bunassemnly_opti")
 
-#setwd(location)
+setwd(location)
 
 #MAKE GRAPHS for each parameter and each score
 make_graphs<-function(dataset,size,projectname){
