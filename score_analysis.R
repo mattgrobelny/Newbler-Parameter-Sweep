@@ -144,7 +144,7 @@ line8<-paste("Based on highest average contig size -->",max(dataset$avgContigSiz
              "- That assembly was made using the following parameters:","\n", " Read length=",df5[1,2],
              "\n"," Overlap length=",df5[1,3],"\n"," Percent Identity=",df5[1,4])
 
-line5<-paste("# Based on",projectname,"_newbler_scores.txt")
+line5<-paste("# Based on",projectname,"_newbler_scores.txt", sep="")
 line6<-paste("####################################################################################################")
 line7<-paste("# Newbler Parameter Sweep Analysis Report")
 
