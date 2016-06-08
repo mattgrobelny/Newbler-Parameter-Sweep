@@ -122,7 +122,7 @@ my @args_def= ('-o',"$paravals_internal[0]",
   '-nobig',
   '-vs',$ARGV[10],
   '-vt',$ARGV[10],  # hard code.....
-  $ARGV[11],'2>/dev/null'
+  $ARGV[11]
   ); # hard code.....
 
 # relabel out from para_combo_gen to paravals
@@ -264,6 +264,8 @@ print "Done with loop\n";
 
 #Data Analysis
 ##################################################################################################################################################
+chdir "$current_dir/$folder_name/";
+
 if (( $ARGV[12] eq "TRUE")||($ARGV[13]  eq "TRUE")){
   system("Rscript ../score_analysis.R $ARGV[12] $ARGV[13] ./ $folder_name")
 }
