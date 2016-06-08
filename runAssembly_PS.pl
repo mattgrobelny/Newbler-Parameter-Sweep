@@ -231,34 +231,28 @@ for ($readlength=$max_min_readlength; $readlength>=$min_min_readlength;$readleng
     		my @paravals=($folder_name_for_it,$readlength,$overlap,$id);
     		print"Current parameters outside of runAssembly: @paravals\n\n";
 
-      #run Newbler with paramters --> ouputs @runAssembly_paras
+  	 	#run Newbler with paramters --> ouputs @runAssembly_paras
   		  run_Assembly(@paravals);
-        if ( $? != -1 ){
-          my @scores =col_scores($folder_name_for_it);
+
+  		    my @scores =col_scores($folder_name_for_it);
           push @paravals, @scores;
 
-            #split into comma seperated text
-              my $Final_output=0;
-                $Final_output=join(",", @paravals);
+  		#split into comma seperated text
+  		  my $Final_output=0;
+  		    $Final_output=join(",", @paravals);
 
-                  print"Here are the results for this run: @paravals\n";
+  		      print"Here are the results for this run: @paravals\n";
 
-            #save masterlist data to file
-              open(my $fh, '>>', "$current_dir/$ARGV[9]_newbler_scores.txt");
+  		#save masterlist data to file
+  		  open(my $fh, '>>', "$current_dir/$ARGV[9]_newbler_scores.txt");
 
-                print {$fh} "$Final_output\n";
+  		    print {$fh} "$Final_output\n";
 
-                  close ($fh);
+  		      close ($fh);
 
-                    print"DONE with $folder_name_for_it\n \n starting new run...\n\n";
-
-            #  add 1 to $folder_it interation \n";
-            $folder_it= $folder_it+1
-          }
-        else{
-          printf "command exited with value %d", $? >> 8;
-          $folder_it= $folder_it+1;
-        }
+  		        print"DONE with $folder_name_for_it\n \n starting new run...\n\n";
+  		#  add 1 to $folder_it interation \n";
+      $folder_it= $folder_it+1
     }
   }
 }
