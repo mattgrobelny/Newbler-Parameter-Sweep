@@ -182,11 +182,12 @@ my $file_name="454NewblerMetrics.txt";
 
 #orient directory
 chdir "$current_dir/$folder_name_for_it/";
+my @scores=("","","","","");
 
 #whole metrics file variable
 my $whole_file=0;
 #open 454NewblerMetrics.txt
-open (my $FILE,'<', $file_name ) or die "Could not open file $file_name $! \n";
+open (my $FILE,'<', $file_name ) or return @scores;
 
 #import complete metrics files for processing
 while (my $line = <$FILE>){
@@ -207,7 +208,7 @@ $largestContigSize=$1;
 
 chdir "$current_dir";
 
-my @scores = ($numberOfContigs,$numberOfBases,$avgContigSize,$N50ContigSize,$largestContigSize);
+@scores = ($numberOfContigs,$numberOfBases,$avgContigSize,$N50ContigSize,$largestContigSize);
 return @scores;
 }
 
