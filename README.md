@@ -62,7 +62,7 @@ Data analysis consists:
 	-readlength_minimum -readlength_maximum -readlength_step -min_minoverlap -max_minoverlap -step_minoverlap -min_min_id -max_min_id -step_min_id -Projectname(will also be foldername) -vectortrimfiles -sff_file -PrintGraphs (TRUE or FALSE) -PrintRecommendedParameters (TRUE or FALSE)
 
 ##### Example:
-	perl runAssembly_PS 15 45 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff TRUE TRUE
+	perl runAssembly_PS.pl 15 45 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff TRUE TRUE
 
 ##### Recommend running in background:
 	nohup perl runAssembly_PS 15 45 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff TRUE TRUE &
