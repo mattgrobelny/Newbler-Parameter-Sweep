@@ -267,7 +267,8 @@ print "Done with loop\n";
 
 #Data Analysis
 ##################################################################################################################################################
-chdir "$current_dir/$folder_name/";
+chdir "$current_dir";
+
 
 if (( $ARGV[12] eq "TRUE")||($ARGV[13]  eq "TRUE")){
   system("Rscript ../score_analysis.R $ARGV[12] $ARGV[13] ./ $folder_name")
