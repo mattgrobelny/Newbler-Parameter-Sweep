@@ -124,7 +124,7 @@ chomp $current_dir;
 
 #prep final output file seprate each data point by comma
 my $score_file_name= $current_dir. "/" . $folder_name . "_newbler_scores.txt";
-open(my $fh, '>', $score_file_name);
+open(my $fh, '>', "$score_file_name");
 print {$fh} "Folder_name,Readlength,Overlap,Id,numberOfContigs,numberOfBases,avgContigSize,N50ContigSize,largestContigSize\n";
 close ($fh);
 
@@ -273,7 +273,7 @@ for ($readlength=$max_min_readlength; $readlength>=$min_min_readlength;$readleng
   		      print"Here are the results for this run: @paravals\n";
 
   		#save masterlist data to file
-  		  open(my $fh, '>>', "$current_dir/$ARGV[9]_newbler_scores.txt");
+  		  open(my $fh, '>>', "$score_file_name");
 
   		    print {$fh} "$Final_output\n";
 
@@ -296,7 +296,7 @@ chdir "$current_dir";
 
 
 if (( $printGraphs eq "TRUE")||($printrecommendedParameters  eq "TRUE")){
-  system("Rscript ../score_analysis.R $ARGV[12] $ARGV[13] ./ $folder_name")
+  system("Rscript ../score_analysis.R $printGraphs $printrecommendedParameters ./ $folder_name")
 }
 
 ##################################################################################################################################################
