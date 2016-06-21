@@ -53,13 +53,6 @@ See README file for more info\n
 # Done with Subs
 ##################################################################################################################################################
 
-#In the option specification, the option name is followed by an equals sign = and the letter s.
-#The equals sign indicates that this option requires a value.
-#The letter s indicates that this value is an arbitrary string.
-#Other possible value types are i for integer values, and f for floating point values.
-#Using a colon : instead of the equals sign indicates that the option value is optional.
-#In this case, if no suitable value is supplied, string valued options get an empty string '' assigned, while numeric options are set to 0 .
-
 my $min_min_readlength= '15'; #minimum min read length, minimum min is 15
 my $max_min_readlength= '45'; #maximum min read length
 my $step_min_readlength='5'; #step size for min read length
@@ -117,7 +110,7 @@ my $printrecommendedParameters= 'TRUE';
   'printrecommendedParameters':s => \$printrecommendedParameters
 
 );
-$folder_name="" .$folder_name;
+$folder_name="" . $folder_name;
 # to implemet make sure to change all ARGV
 
 
@@ -146,7 +139,7 @@ close ($fh);
 ##################################################################################################################################################
 sub run_Assembly {
 #put together intial argumets to pass to runAssembly
-my (@paravals_internal) = @_;
+my @paravals_internal = @_;
 
 #default arguments to run
 my @args_def= ('-o',"$paravals_internal[0]",
@@ -154,9 +147,9 @@ my @args_def= ('-o',"$paravals_internal[0]",
   #'-m',
   '-cpu','0',
   '-nobig',
-  '-vs',$ARGV[10],
-  '-vt',$ARGV[10],  # hard code.....
-  $ARGV[11]
+  '-vs',$vectorTrimfiles,
+  '-vt',$vectorTrimfiles,  # hard code.....
+  $sff_file
   ); # hard code.....
 
 # relabel out from para_combo_gen to paravals
@@ -301,7 +294,7 @@ print "Done with loop\n";
 chdir "$current_dir";
 
 
-if (( $ARGV[12] eq "TRUE")||($ARGV[13]  eq "TRUE")){
+if (( $printGraphs eq "TRUE")||($printrecommendedParameters  eq "TRUE")){
   system("Rscript ../score_analysis.R $ARGV[12] $ARGV[13] ./ $folder_name")
 }
 
