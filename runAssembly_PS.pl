@@ -97,21 +97,21 @@ my $printrecommendedParameters= 'TRUE';
 #Get options
 GetOptions (
   #optional
-  "readlength_Min":i => \$min_min_readlength,
-  "readlength_Max":i => \$max_min_readlength,
-  "readlength_Step":i => \$step_min_readlength,
-  "minoverlap_Min":i => \$min_minoverlap,
-  "minoverlap_Max":i => \$max_minoverlap,
-  "minoverlap_Step":i => \$step_minoverlap,
-  "min_id_Min":i => \$min_min_id,
-  "min_id_Max":i => \$max_min_id,
-  "min_id_Step":i => \$step_min_id,
-  "printGraphs":s => \$printGraphs,
-  "printrecommendedParameters":s => \$printrecommendedParameters,
+  "readlength_Min:i" => \$min_min_readlength,
+  "readlength_Max:i" => \$max_min_readlength,
+  "readlength_Step:i" => \$step_min_readlength,
+  "minoverlap_Min:i" => \$min_minoverlap,
+  "minoverlap_Max:i" => \$max_minoverlap,
+  "minoverlap_Step:i" => \$step_minoverlap,
+  "min_id_Min:i" => \$min_min_id,
+  "min_id_Max:i" => \$max_min_id,
+  "min_id_Step:i" => \$step_min_id,
+  "printGraphs:s" => \$printGraphs,
+  "printrecommendedParameters:s" => \$printrecommendedParameters,
   #Required
-  "projectName"=s => \$folder_name,
-  "vectorTrimfiles"=s => \$vectorTrimfiles,
-  "sff_file"=s => \$sff_file
+  "projectName=s" => \$folder_name,
+  "vectorTrimfiles=s" => \$vectorTrimfiles,
+  "sff_file=s" => \$sff_file
 );
 $folder_name="" . $folder_name;
 # to implemet make sure to change all ARGV
