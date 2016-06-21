@@ -123,7 +123,8 @@ my $current_dir= `pwd`;
 chomp $current_dir;
 
 #prep final output file seprate each data point by comma
-open(my $fh, '>', "$current_dir/$ARGV[9]_newbler_scores.txt");
+my $score_file_name= $current_dir. "/" . $folder_name . "_newbler_scores.txt";
+open(my $fh, '>', $score_file_name);
 print {$fh} "Folder_name,Readlength,Overlap,Id,numberOfContigs,numberOfBases,avgContigSize,N50ContigSize,largestContigSize\n";
 close ($fh);
 
