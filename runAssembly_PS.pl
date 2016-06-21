@@ -9,7 +9,7 @@ BEGIN { our $start_run = time(); }
 #required parameters:
 my $help=$ARGV[0];
 
-print "Hi, here is what you gave me to use: @ARGV\n\n";
+print "Hi, here is what you gave me to use:\n @ARGV\n\n";
 
 if (( $help eq "--help")||($help eq "-h")){
   die print "NEWBLER PARAMETERS SWEEP v1.0 \n
@@ -48,6 +48,8 @@ Some parameters where hard coded in the version... sorry if you dont see the par
 
 See README file for more info\n
 	"};
+
+#perl ~/Scripts/github/Newbler-Parameter-Sweep/runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ./bothtrimfiles.fasta -sff_file ./mid_MID1.sff
 
 
 # Done with Subs
@@ -93,23 +95,23 @@ my $sff_file='';
 my $printGraphs= 'TRUE' ;
 my $printrecommendedParameters= 'TRUE';
 #Get options
-  GetOptions (
+GetOptions (
   #optional
-  'readlength_Min':i => \$min_min_readlength,
-  'readlength_Max':i => \$max_min_readlength,
-  'readlength_Step':i => \$step_min_readlength,
-  'minoverlap_Min':i => \$min_minoverlap,
-  'minoverlap_Max':i => \$max_minoverlap,
-  'minoverlap_Step':i => \$step_minoverlap,
-  'min_id_Min':i => \$min_min_id,
-  'min_id_Max':i => \$max_min_id,
-  'min_id_Step':i => \$step_min_id,
-  'printGraphs':s => \$printGraphs,
-  'printrecommendedParameters':s => \$printrecommendedParameters,
+  "readlength_Min":i => \$min_min_readlength,
+  "readlength_Max":i => \$max_min_readlength,
+  "readlength_Step":i => \$step_min_readlength,
+  "minoverlap_Min":i => \$min_minoverlap,
+  "minoverlap_Max":i => \$max_minoverlap,
+  "minoverlap_Step":i => \$step_minoverlap,
+  "min_id_Min":i => \$min_min_id,
+  "min_id_Max":i => \$max_min_id,
+  "min_id_Step":i => \$step_min_id,
+  "printGraphs":s => \$printGraphs,
+  "printrecommendedParameters":s => \$printrecommendedParameters,
   #Required
-  'projectName'=s => \$folder_name,
-  'vectorTrimfiles'=s => $vectorTrimfiles\,
-  'sff_file'=s => \$sff_file
+  "projectName"=s => \$folder_name,
+  "vectorTrimfiles"=s => \$vectorTrimfiles,
+  "sff_file"=s => \$sff_file
 );
 $folder_name="" . $folder_name;
 # to implemet make sure to change all ARGV
