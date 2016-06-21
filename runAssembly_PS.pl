@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 #use strict;
 use warnings;
+use Getopt::Long;
 
 #Trigger time count
 BEGIN { our $start_run = time(); }
@@ -52,11 +53,16 @@ See README file for more info\n
 # Done with Subs
 ##################################################################################################################################################
 
-#passed in arguments with script
-##########################READ LENGHT PARAMETERS#############################
-my $min_min_readlength= $ARGV[0]+0; #minimum min read length, minimum min is 15
-my $max_min_readlength= $ARGV[1]+0; #maximum min read length
-my $step_min_readlength=$ARGV[2]+0; #step size for min read length
+#In the option specification, the option name is followed by an equals sign = and the letter s.
+#The equals sign indicates that this option requires a value.
+#The letter s indicates that this value is an arbitrary string.
+#Other possible value types are i for integer values, and f for floating point values.
+#Using a colon : instead of the equals sign indicates that the option value is optional.
+#In this case, if no suitable value is supplied, string valued options get an empty string '' assigned, while numeric options are set to 0 .
+
+my $min_min_readlength= '15'; #minimum min read length, minimum min is 15
+my $max_min_readlength= '45'; #maximum min read length
+my $step_min_readlength='5'; #step size for min read length
 
 ##########################SEED PARAMETERS####################################
 #my $min_seed= @ARGV[4]; #minimum seed length , minimum min is 15
@@ -64,14 +70,14 @@ my $step_min_readlength=$ARGV[2]+0; #step size for min read length
 #my $step_seed=@ARGV[6]; #step size for min read length
 
 ####################MIN OVERLAP LENGHT PARAMETERS#############################
-my $min_minoverlap= $ARGV[3]+0; #minimum min over lap length, minimum min is 15
-my $max_minoverlap= $ARGV[4]+0; #maximum min over lap length
-my $step_minoverlap=$ARGV[5]+0; #step size for interation through minlength range
+my $min_minoverlap= '15'; #minimum min over lap length, minimum min is 15
+my $max_minoverlap= '50'; #maximum min over lap length
+my $step_minoverlap='5'; #step size for interation through minlength range
 
 ####################MIN OVERLAP LENGHT PARAMETERS#############################
-my $min_min_id= $ARGV[6]+0; #minimum min id
-my $max_min_id= $ARGV[7]+0; #maximum min id
-my $step_min_id=$ARGV[8]+0; #step size for interation through minimum identity
+my $min_min_id= '95'; #minimum min id
+my $max_min_id= '99'; #maximum min id
+my $step_min_id='1'; #step size for interation through minimum identity
 
 
 ####################GOBAL ITERATION PARAMETERS#############################
@@ -85,10 +91,35 @@ my $runAssembly= ('runAssembly');
 my $readlength   =$min_min_readlength;
 my $overlap      =$min_minoverlap;
 my $id           =$min_min_id;
-my $folder_name  =''.$ARGV[9];
+my $folder_name  =''; #add empty string to make string as type
 my $folder_it =0;
 my $folder_step=1;
 my $runAssembly_paras=0;
+my $vectorTrimfiles='';
+my $sff_file='';
+my $printGraphs= 'TRUE' ;
+my $printrecommendedParameters= 'TRUE';
+#Get options
+  GetOptions (
+  'readlength_Min':i => \$min_min_readlength,
+  'readlength_Max':i => \$max_min_readlength,
+  'readlength_Step':i => \$step_min_readlength,
+  'minoverlap_Min':i => \$min_minoverlap,
+  'minoverlap_Max':i => \$max_minoverlap,
+  'minoverlap_Step':i => \$step_minoverlap,
+  'min_id_Min':i => \$min_min_id,
+  'min_id_Max':i => \$max_min_id,
+  'min_id_Step':i => \$step_min_id,
+  'projectName'=s => \$folder_name,
+  'vectorTrimfiles'=s => $vectorTrimfiles\,
+  'sff_file'=s => \$sff_file,
+  'printGraphs':s => \$printGraphs,
+  'printrecommendedParameters':s => \$printrecommendedParameters
+
+);
+$folder_name="" .$folder_name;
+# to implemet make sure to change all ARGV
+
 
 #########################
 #prep working directory
