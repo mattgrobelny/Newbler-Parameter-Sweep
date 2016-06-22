@@ -57,9 +57,10 @@ Data analysis consists:
 - 14 boxplot graphs (comparing each input parameter against each score)
 - Analysis report, outputs a textual report of best parameter combinations for each score.
 
-## Script Usage
+#Script Usage
 
 ### Basic Run
+
 Run Newbler Parameter Sweep using built in DEFAULTS (see below), this provides the broadest range of parameter combinations.
 To run this script using default parameters, you will however need to pass in these three required parameter:
 	-projectName (Title of project will also be file name)
@@ -67,6 +68,7 @@ To run this script using default parameters, you will however need to pass in th
 	-sff_file (.sff file (demultiplexed) from sequencing)
 
 #### Basic Run Command line Example:
+
 	perl runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ./bothtrimfiles.fasta -sff_file ./mid_MID1.sff
 
 ## Optional Options
@@ -74,27 +76,29 @@ Use these parameters to tweak the range of parameter iteration and the step valu
 
 ####Control iteration range for the read length parameter:
 
-	-readlength_Min  (Minimum read length cutoff- lowest value)			[Min accepted value: 15 || DEFAULT: 15]
-	-readlength_Max  (Minimum read length cutoff- highest value)		[Max accepted value: 45 || DEFAULT: 45]
-	-readlength_Step (Minimum read length cutoff- step value)				[Accepted value range: 1 to 10 || DEFAULT: 5]
+	-readlength_Min  (Minimum read length cutoff- lowest value)	[Min accepted value: 15 || DEFAULT: 15]
+	-readlength_Max  (Minimum read length cutoff- highest value)[Max accepted value: 45 || DEFAULT: 45]
+	-readlength_Step (Minimum read length cutoff- step value)		[Accepted value range: 1 to 10 || DEFAULT: 5]
 
 ##### Control iteration range for the minimum overlap parameter:
 
-	-minoverlap_Min  (Minimum overlap length cutoff- lowest value) 	[Min accepted value: 15 || DEFAULT: 15]
-	-minoverlap_Max  (Minimum overlap length cutoff- highest value) [Max accepted value: 50 || DEFAULT: 50]
-	-minoverlap_Step (Minimum overlap length cutoff- step value) 		[Accepted value range: 1 to 10 || DEFAULT: 5]
+	-minoverlap_Min  (Minimum overlap length cutoff- lowest value)	[Min accepted value: 15 || DEFAULT: 15]
+	-minoverlap_Max  (Minimum overlap length cutoff- highest value)	[Max accepted value: 50 || DEFAULT: 50]
+	-minoverlap_Step (Minimum overlap length cutoff- step value)		[Accepted value range: 1 to 10 || DEFAULT: 5]
 
 ##### Control iteration range for the minimum overlap parameter:
 
-	-min_id_Min      (Identity percentage cutoff- lowest value) 		[Min accepted value: 50 || DEFAULT: 95]
-	-min_id_Max      (Identity percentage cutoff- highest value)		[Max accepted value: 45 || DEFAULT: 99]
-	-min_id_Step     (Identity percentage cutoff- step value)				[Accepted value range: 1 to 10 || DEFAULT: 1]
+	-min_id_Min      (Identity percentage cutoff- lowest value)		[Min accepted value: 50 || DEFAULT: 95]
+	-min_id_Max      (Identity percentage cutoff- highest value)	[Max accepted value: 45 || DEFAULT: 99]
+	-min_id_Step     (Identity percentage cutoff- step value)			[Accepted value range: 1 to 10 || DEFAULT: 1]
 
 #### Data Analysis Options- Use these parameters to run data analysis on assembly scores output:
 
-	-printGraphs     						(TRUE or FALSE - prints 14 graphs) [DEFAULT: TRUE]
+	-printGraphs	(TRUE or FALSE - prints 14 graphs) [DEFAULT: TRUE]
 	-printrecommendedParameters (TRUE or FALSE - outputs report with recommended parameter combinations)[DEFAULT: TRUE]
 
+
+## Examples
 
 #### Example of Custom Run Using all Parameters:
 
