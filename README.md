@@ -64,7 +64,7 @@ Data analysis consists:
 	-vectorTrimfiles (adapter and vector sequences for trimming)
 	-sff_file (.sff file (demultiplexed) from sequencing)
 
-**Basic Run Example:**
+  Basic Run Example:
 	perl runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ./bothtrimfiles.fasta -sff_file ./mid_MID1.sff
 
 #### Optional Options(1)- Use these parameters to tweak the range of parameter iteration and the step values
@@ -102,4 +102,4 @@ Data analysis consists:
 - [x] Output scores report for each assembly and the corresponding parameter combination
 - [x] Perform analysis on scores report (print graphs)
 - [x] Suggest recommended assembly parameters for specific .sff file based on scores
-- [x] Improve Parameter parsing and add default parameters
+- [x] Improve parameter parsing and add default parameters
