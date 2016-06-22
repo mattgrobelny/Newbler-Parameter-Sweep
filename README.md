@@ -31,7 +31,7 @@
 - minimum overlap length
 - minimum identity %
 
-### Basics of the program:
+## Basics of the program:
 
 --> This program takes the minimum, maximum and step value for each parameter:
 - read length
@@ -57,9 +57,11 @@ Data analysis consists:
 - 14 boxplot graphs (comparing each input parameter against each score)
 - Analysis report, outputs a textual report of best parameter combinations for each score.
 
-### Script Usage
-#### Basic Run- Run Newbler Parameter Sweep using built in DEFAULTS (see below), this provides the broadest range of parameter combinations.
-#### Basic Run- To run this script using default parameters, you need to pass in these three required parameter:
+## Script Usage
+
+### Basic Run
+Run Newbler Parameter Sweep using built in DEFAULTS (see below), this provides the broadest range of parameter combinations.
+To run this script using default parameters, you will however need to pass in these three required parameter:
 	-projectName (Title of project will also be file name)
 	-vectorTrimfiles (adapter and vector sequences for trimming)
 	-sff_file (.sff file (demultiplexed) from sequencing)
@@ -67,8 +69,10 @@ Data analysis consists:
 #### Basic Run Command line Example:
 	perl runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ./bothtrimfiles.fasta -sff_file ./mid_MID1.sff
 
-#### Optional Options(1)- Use these parameters to tweak the range of parameter iteration and the step values
-##### Control iteration range for the read length parameter:
+### Optional Options(1)
+Use these parameters to tweak the range of parameter iteration and the step values
+
+####Control iteration range for the read length parameter:
 
 	-readlength_Min  (Minimum read length cutoff- lowest value)			[Min accepted value: 15 || DEFAULT: 15]
 	-readlength_Max  (Minimum read length cutoff- highest value)		[Max accepted value: 45 || DEFAULT: 45]
@@ -92,16 +96,16 @@ Data analysis consists:
 	-printrecommendedParameters (TRUE or FALSE - outputs report with recommended parameter combinations)[DEFAULT: TRUE]
 
 
-##### Example Run Using all Parameters:
+#### Example Run Using all Parameters:
 
 	perl runAssembly_PS.pl -readlength_Min 20 -readlength_Max 30 -readlength_Step 1 -minoverlap_Min 20 -minoverlap_Max 30 -minoverlap_Step 1 -min_id_Min 95 -min_id_Max 99 -min_id_Step 1 -printGraphs  TRUE -printrecommendedParameters TRUE -projectName Project1 -vectorTrimfiles project1_vector_trim.fasta -sff_file mid1_Project1.sff
 
-##### Recommend running in background:
-##### Depending on the range of parameter combinations I recommend using 'nohup'  and '&' to redirect output to nohup.txt and run in background.
+#### Recommend running in background:
+Depending on the range of parameter combinations I recommend using 'nohup'  and '&' to redirect output to nohup.txt and run in background.
 
 	nohup perl runAssembly_PS.pl -readlength_Min 20 -readlength_Max 30 -readlength_Step 1 -minoverlap_Min 20 -minoverlap_Max 30 -minoverlap_Step 1 -min_id_Min 95 -min_id_Max 99 -min_id_Step 1 -printGraphs  TRUE -printrecommendedParameters TRUE -projectName Project1 -vectorTrimfiles project1_vector_trim.fasta -sff_file mid1_Project1.sff &
 
-##### *or using Basic run:*
+or using Basic run:
 
 	nohup perl runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ./bothtrimfiles.fasta -sff_file ./mid_MID1.sff &
 
