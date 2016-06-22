@@ -155,7 +155,7 @@ my @args_def= ('-o',"$paravals_internal[0]",
   '-nobig',
   '-vs',$vectorTrimfiles,
   '-vt',$vectorTrimfiles,  # hard code.....
-  '-p',$sff_file
+  $sff_file
   ); # hard code.....
 
 # relabel out from para_combo_gen to paravals
