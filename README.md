@@ -53,11 +53,9 @@
 
 	OUTPUT--> Scores for each assembly: numberOfContigs, numberOfBases, avgContigSize, N50ContigSize, largestContigSize
  ```
-4. The script will preform basic data analysis if the last two parameters passed in are: "TRUE TRUE"(look at example below). First "TRUE" prints graphs, Second "TRUE" prints recommend assembly parameters based on each score.
-
-Data analysis consists:
+4. By default, the script will preform basic data analysis by printing:
 - 14 boxplot graphs (comparing each input parameter against each score)
-- Analysis report, outputs a textual report of best parameter combinations for each score.
+- Analysis report, outputs a textual report of best parameter combinations for based on each score (numberOfContigs, numberOfBases, avgContigSize, N50ContigSize, largestContigSize).
 
 #Script Usage
 
