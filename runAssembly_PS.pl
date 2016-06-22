@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 #use strict;
 use warnings;
+use Getopt::Long;
 
 #Trigger time count
 BEGIN { our $start_run = time(); }
@@ -8,7 +9,7 @@ BEGIN { our $start_run = time(); }
 #required parameters:
 my $help=$ARGV[0];
 
-print "Hi, here is what you gave me to use: @ARGV\n\n";
+print "Hi, here is what you gave me to use:\n @ARGV\n\n";
 
 if (( $help eq "--help")||($help eq "-h")){
   die print "NEWBLER PARAMETERS SWEEP v1.0 \n
@@ -48,15 +49,15 @@ Some parameters where hard coded in the version... sorry if you dont see the par
 See README file for more info\n
 	"};
 
+#perl ~/Scripts/github/Newbler-Parameter-Sweep/runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ./bothtrimfiles.fasta -sff_file ./mid_MID1.sff
+
 
 # Done with Subs
 ##################################################################################################################################################
 
-#passed in arguments with script
-##########################READ LENGHT PARAMETERS#############################
-my $min_min_readlength= $ARGV[0]+0; #minimum min read length, minimum min is 15
-my $max_min_readlength= $ARGV[1]+0; #maximum min read length
-my $step_min_readlength=$ARGV[2]+0; #step size for min read length
+my $min_min_readlength= '15'; #minimum min read length, minimum min is 15
+my $max_min_readlength= '45'; #maximum min read length
+my $step_min_readlength='5'; #step size for min read length
 
 ##########################SEED PARAMETERS####################################
 #my $min_seed= @ARGV[4]; #minimum seed length , minimum min is 15
@@ -64,14 +65,14 @@ my $step_min_readlength=$ARGV[2]+0; #step size for min read length
 #my $step_seed=@ARGV[6]; #step size for min read length
 
 ####################MIN OVERLAP LENGHT PARAMETERS#############################
-my $min_minoverlap= $ARGV[3]+0; #minimum min over lap length, minimum min is 15
-my $max_minoverlap= $ARGV[4]+0; #maximum min over lap length
-my $step_minoverlap=$ARGV[5]+0; #step size for interation through minlength range
+my $min_minoverlap= '15'; #minimum min over lap length, minimum min is 15
+my $max_minoverlap= '50'; #maximum min over lap length
+my $step_minoverlap='5'; #step size for interation through minlength range
 
 ####################MIN OVERLAP LENGHT PARAMETERS#############################
-my $min_min_id= $ARGV[6]+0; #minimum min id
-my $max_min_id= $ARGV[7]+0; #maximum min id
-my $step_min_id=$ARGV[8]+0; #step size for interation through minimum identity
+my $min_min_id= '95'; #minimum min id
+my $max_min_id= '99'; #maximum min id
+my $step_min_id='1'; #step size for interation through minimum identity
 
 
 ####################GOBAL ITERATION PARAMETERS#############################
@@ -85,10 +86,36 @@ my $runAssembly= ('runAssembly');
 my $readlength   =$min_min_readlength;
 my $overlap      =$min_minoverlap;
 my $id           =$min_min_id;
-my $folder_name  =''.$ARGV[9];
+my $folder_name  =''; #add empty string to make string as type
 my $folder_it =0;
 my $folder_step=1;
 my $runAssembly_paras=0;
+my $vectorTrimfiles='';
+my $sff_file='';
+my $printGraphs= 'TRUE' ;
+my $printrecommendedParameters= 'TRUE';
+#Get options
+GetOptions (
+  #optional
+  "readlength_Min:i" => \$min_min_readlength,
+  "readlength_Max:i" => \$max_min_readlength,
+  "readlength_Step:i" => \$step_min_readlength,
+  "minoverlap_Min:i" => \$min_minoverlap,
+  "minoverlap_Max:i" => \$max_minoverlap,
+  "minoverlap_Step:i" => \$step_minoverlap,
+  "min_id_Min:i" => \$min_min_id,
+  "min_id_Max:i" => \$max_min_id,
+  "min_id_Step:i" => \$step_min_id,
+  "printGraphs:s" => \$printGraphs,
+  "printrecommendedParameters:s" => \$printrecommendedParameters,
+  #Required
+  "projectName=s" => \$folder_name,
+  "vectorTrimfiles=s" => \$vectorTrimfiles,
+  "sff_file=s" => \$sff_file
+);
+$folder_name="" . $folder_name;
+# to implemet make sure to change all ARGV
+
 
 #########################
 #prep working directory
@@ -99,7 +126,8 @@ my $current_dir= `pwd`;
 chomp $current_dir;
 
 #prep final output file seprate each data point by comma
-open(my $fh, '>', "$current_dir/$ARGV[9]_newbler_scores.txt");
+my $score_file_name= $current_dir. "/" . $folder_name . "_newbler_scores.txt";
+open(my $fh, '>', "$score_file_name");
 print {$fh} "Folder_name,Readlength,Overlap,Id,numberOfContigs,numberOfBases,avgContigSize,N50ContigSize,largestContigSize\n";
 close ($fh);
 
@@ -115,7 +143,7 @@ close ($fh);
 ##################################################################################################################################################
 sub run_Assembly {
 #put together intial argumets to pass to runAssembly
-my (@paravals_internal) = @_;
+my @paravals_internal = @_;
 
 #default arguments to run
 my @args_def= ('-o',"$paravals_internal[0]",
@@ -123,9 +151,9 @@ my @args_def= ('-o',"$paravals_internal[0]",
   #'-m',
   '-cpu','0',
   '-nobig',
-  '-vs',$ARGV[10],
-  '-vt',$ARGV[10],  # hard code.....
-  $ARGV[11]
+  '-vs',$vectorTrimfiles,
+  '-vt',$vectorTrimfiles,  # hard code.....
+  $sff_file
   ); # hard code.....
 
 # relabel out from para_combo_gen to paravals
@@ -248,7 +276,7 @@ for ($readlength=$max_min_readlength; $readlength>=$min_min_readlength;$readleng
   		      print"Here are the results for this run: @paravals\n";
 
   		#save masterlist data to file
-  		  open(my $fh, '>>', "$current_dir/$ARGV[9]_newbler_scores.txt");
+  		  open(my $fh, '>>', "$score_file_name");
 
   		    print {$fh} "$Final_output\n";
 
@@ -270,8 +298,8 @@ print "Done with loop\n";
 chdir "$current_dir";
 
 
-if (( $ARGV[12] eq "TRUE")||($ARGV[13]  eq "TRUE")){
-  system("Rscript ../score_analysis.R $ARGV[12] $ARGV[13] ./ $folder_name")
+if (( $printGraphs eq "TRUE")||($printrecommendedParameters  eq "TRUE")){
+  system("Rscript ../score_analysis.R $printGraphs $printrecommendedParameters ./ $folder_name")
 }
 
 ##################################################################################################################################################
