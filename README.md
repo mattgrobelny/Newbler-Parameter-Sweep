@@ -33,14 +33,15 @@
 
 ## Basics of the program:
 
---> This program takes the minimum, maximum and step value for each parameter:
-- read length
-- minimum overlap length
-- minimum identity %
+1. This program takes the minimum, maximum and step value for each parameter:
 
---> Then it will run parameters iterations from max values to minimum values by passing parameter combos into the runAssembly program (part of the Newbler package) until it fails to produce an assembly (usually happens at lower read length values).
+	-read length
+	-minimum overlap length
+	-minimum identity %
 
---> The program outputs a comma separated text file containing the folder name, parameters used and the scores for that assembly:
+2. Then it will run parameters iterations from max values to minimum values by passing parameter combos into the runAssembly program (part of the Newbler package) until it fails to produce an assembly (usually happens at lower read length values).
+
+3. The program outputs a comma separated text file containing the folder name, parameters used and the scores for that assembly:
 
 	Folder_name,Readlength,Overlap,Id,numberOfContigs,numberOfBases,avgContigSize,N50ContigSize,largestContigSize
 	Project1_0,45,50,99,24,36197,1508,1809,8402
@@ -51,7 +52,7 @@
 
 **OUTPUT-->** *Scores for each assembly: numberOfContigs, numberOfBases, avgContigSize, N50ContigSize, largestContigSize*
 
---> The script will preform basic data analysis if the last two parameters passed in are: "TRUE TRUE"(look at example below). First "TRUE" prints graphs, Second "TRUE" prints recommend assembly parameters based on each score.
+4. The script will preform basic data analysis if the last two parameters passed in are: "TRUE TRUE"(look at example below). First "TRUE" prints graphs, Second "TRUE" prints recommend assembly parameters based on each score.
 
 Data analysis consists:
 - 14 boxplot graphs (comparing each input parameter against each score)
@@ -74,7 +75,7 @@ To run this script using default parameters, you will however need to pass in th
 ## Optional Options
 Use these parameters to tweak the range of parameter iteration and the step values or turn on data analysis options
 
-####Control iteration range for the read length parameter:
+#### Control iteration range for the read length parameter:
 
 	-readlength_Min  (Minimum read length cutoff- lowest value)	[Min accepted value: 15 || DEFAULT: 15]
 	-readlength_Max  (Minimum read length cutoff- highest value)[Max accepted value: 45 || DEFAULT: 45]
@@ -92,15 +93,16 @@ Use these parameters to tweak the range of parameter iteration and the step valu
 	-min_id_Max      (Identity percentage cutoff- highest value)	[Max accepted value: 45 || DEFAULT: 99]
 	-min_id_Step     (Identity percentage cutoff- step value)			[Accepted value range: 1 to 10 || DEFAULT: 1]
 
-#### Data Analysis Options- Use these parameters to run data analysis on assembly scores output:
+#### Data Analysis Options
+Use these parameters to run data analysis on assembly scores output:
 
 	-printGraphs	(TRUE or FALSE - prints 14 graphs) [DEFAULT: TRUE]
 	-printrecommendedParameters (TRUE or FALSE - outputs report with recommended parameter combinations)[DEFAULT: TRUE]
 
 
-## Examples
+## Command Line Examples
 
-#### Example of Custom Run Using all Parameters:
+#### Custom Run Using all Parameters:
 
 	perl runAssembly_PS.pl -readlength_Min 20 -readlength_Max 30 -readlength_Step 1 -minoverlap_Min 20 -minoverlap_Max 30 -minoverlap_Step 1 -min_id_Min 95 -min_id_Max 99 -min_id_Step 1 -printGraphs  TRUE -printrecommendedParameters TRUE -projectName Project1 -vectorTrimfiles project1_vector_trim.fasta -sff_file mid1_Project1.sff
 
