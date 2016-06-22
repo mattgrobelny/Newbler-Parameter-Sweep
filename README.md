@@ -35,15 +35,16 @@
 
 1. This program takes the minimum, maximum and step value for each parameter:
 
-	`-read length
+	`- minimum read length
 	-minimum overlap length
-	-minimum identity %`
+	-minimum percent identity `
 
 2. Then it will run parameters iterations from max values to minimum values by passing parameter combos into the runAssembly program (part of the Newbler package) until it fails to produce an assembly (usually happens at lower read length values).
 
 3. The program outputs a comma separated text file containing the folder name, parameters used and the scores for that assembly:
 
-	```Folder_name,Readlength,Overlap,Id,numberOfContigs,numberOfBases,avgContigSize,N50ContigSize,largestContigSize
+	```
+	Folder_name,Readlength,Overlap,Id,numberOfContigs,numberOfBases,avgContigSize,N50ContigSize,largestContigSize
 	Project1_0,45,50,99,24,36197,1508,1809,8402
 	Project1_1,45,50,98,25,36844,1473,2208,8090
 	...
@@ -75,7 +76,7 @@ To run this script using default parameters, you will however need to pass in th
 ## Optional Options
 Use these parameters to tweak the range of parameter iteration and the step values or turn on data analysis options
 
-#### Control iteration range for the read length parameter:
+##### Control iteration range for the read length parameter:
 
 	-readlength_Min  (Minimum read length cutoff- lowest value)	[Min accepted value: 15 || DEFAULT: 15]
 	-readlength_Max  (Minimum read length cutoff- highest value)[Max accepted value: 45 || DEFAULT: 45]
@@ -93,7 +94,7 @@ Use these parameters to tweak the range of parameter iteration and the step valu
 	-min_id_Max      (Identity percentage cutoff- highest value)	[Max accepted value: 45 || DEFAULT: 99]
 	-min_id_Step     (Identity percentage cutoff- step value)			[Accepted value range: 1 to 10 || DEFAULT: 1]
 
-#### Data Analysis Options
+##### Data Analysis Options
 Use these parameters to run data analysis on assembly scores output:
 
 	-printGraphs	(TRUE or FALSE - prints 14 graphs) [DEFAULT: TRUE]
@@ -102,11 +103,11 @@ Use these parameters to run data analysis on assembly scores output:
 
 ## Command Line Examples
 
-#### Custom Run Using all Parameters:
+##### Custom Run Using all Parameters:
 
 	perl runAssembly_PS.pl -readlength_Min 20 -readlength_Max 30 -readlength_Step 1 -minoverlap_Min 20 -minoverlap_Max 30 -minoverlap_Step 1 -min_id_Min 95 -min_id_Max 99 -min_id_Step 1 -printGraphs  TRUE -printrecommendedParameters TRUE -projectName Project1 -vectorTrimfiles project1_vector_trim.fasta -sff_file mid1_Project1.sff
 
-#### Recommend running in background:
+##### Recommend running in background:
 Depending on the range of parameter combinations I recommend using 'nohup'  and '&' to redirect output to nohup.txt and run in background.
 
 	nohup perl runAssembly_PS.pl -readlength_Min 20 -readlength_Max 30 -readlength_Step 1 -minoverlap_Min 20 -minoverlap_Max 30 -minoverlap_Step 1 -min_id_Min 95 -min_id_Max 99 -min_id_Step 1 -printGraphs  TRUE -printrecommendedParameters TRUE -projectName Project1 -vectorTrimfiles project1_vector_trim.fasta -sff_file mid1_Project1.sff &
@@ -115,7 +116,10 @@ Depending on the range of parameter combinations I recommend using 'nohup'  and 
 
 	nohup perl runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ./bothtrimfiles.fasta -sff_file ./mid_MID1.sff &
 
+
 *Some parameters where hard coded in the version... sorry if you do not see the parameter you want to iterate through...*
+
+---
 
 ##### Goals for the Project:
 - [x] Iterate across several key variables in runAssembly
