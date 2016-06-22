@@ -69,8 +69,8 @@ To run this script using default parameters, you will however need to pass in th
 #### Basic Run Command line Example:
 	perl runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ./bothtrimfiles.fasta -sff_file ./mid_MID1.sff
 
-### Optional Options(1)
-Use these parameters to tweak the range of parameter iteration and the step values
+## Optional Options
+Use these parameters to tweak the range of parameter iteration and the step values or turn on data analysis options
 
 ####Control iteration range for the read length parameter:
 
@@ -90,13 +90,13 @@ Use these parameters to tweak the range of parameter iteration and the step valu
 	-min_id_Max      (Identity percentage cutoff- highest value)		[Max accepted value: 45 || DEFAULT: 99]
 	-min_id_Step     (Identity percentage cutoff- step value)				[Accepted value range: 1 to 10 || DEFAULT: 1]
 
-#### Optional Options(2)- Use these parameters to run data analysis on assembly scores output:
+#### Data Analysis Options- Use these parameters to run data analysis on assembly scores output:
 
 	-printGraphs     						(TRUE or FALSE - prints 14 graphs) [DEFAULT: TRUE]
 	-printrecommendedParameters (TRUE or FALSE - outputs report with recommended parameter combinations)[DEFAULT: TRUE]
 
 
-#### Example Run Using all Parameters:
+#### Example of Custom Run Using all Parameters:
 
 	perl runAssembly_PS.pl -readlength_Min 20 -readlength_Max 30 -readlength_Step 1 -minoverlap_Min 20 -minoverlap_Max 30 -minoverlap_Step 1 -min_id_Min 95 -min_id_Max 99 -min_id_Step 1 -printGraphs  TRUE -printrecommendedParameters TRUE -projectName Project1 -vectorTrimfiles project1_vector_trim.fasta -sff_file mid1_Project1.sff
 
@@ -105,7 +105,7 @@ Depending on the range of parameter combinations I recommend using 'nohup'  and 
 
 	nohup perl runAssembly_PS.pl -readlength_Min 20 -readlength_Max 30 -readlength_Step 1 -minoverlap_Min 20 -minoverlap_Max 30 -minoverlap_Step 1 -min_id_Min 95 -min_id_Max 99 -min_id_Step 1 -printGraphs  TRUE -printrecommendedParameters TRUE -projectName Project1 -vectorTrimfiles project1_vector_trim.fasta -sff_file mid1_Project1.sff &
 
-or using Basic run:
+*or using the DEFAULT run:*
 
 	nohup perl runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ./bothtrimfiles.fasta -sff_file ./mid_MID1.sff &
 
