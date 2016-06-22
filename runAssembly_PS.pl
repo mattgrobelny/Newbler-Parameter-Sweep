@@ -49,11 +49,10 @@ Some parameters where hard coded in the version... sorry if you dont see the par
 See README file for more info\n
 	"};
 
-#perl ~/Scripts/github/Newbler-Parameter-Sweep/runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ./bothtrimfiles.fasta -sff_file ./mid_MID1.sff
-
-
-# Done with Subs
+# Done with Intro
 ##################################################################################################################################################
+
+# Set Default Parameters
 
 my $min_min_readlength= '15'; #minimum min read length, minimum min is 15
 my $max_min_readlength= '45'; #maximum min read length
@@ -94,9 +93,11 @@ my $vectorTrimfiles='';
 my $sff_file='';
 my $printGraphs= 'TRUE' ;
 my $printrecommendedParameters= 'TRUE';
+
 #Get options
 GetOptions (
-  #optional
+
+  #Optional options
   "readlength_Min:i" => \$min_min_readlength,
   "readlength_Max:i" => \$max_min_readlength,
   "readlength_Step:i" => \$step_min_readlength,
@@ -108,7 +109,8 @@ GetOptions (
   "min_id_Step:i" => \$step_min_id,
   "printGraphs:s" => \$printGraphs,
   "printrecommendedParameters:s" => \$printrecommendedParameters,
-  #Required
+
+  #Required options
   "projectName=s" => \$folder_name,
   "vectorTrimfiles=s" => \$vectorTrimfiles,
   "sff_file=s" => \$sff_file
