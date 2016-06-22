@@ -113,8 +113,8 @@ GetOptions (
   #Required options
   "projectName=s" => \$folder_name,
   "vectorTrimfiles=s" => \$vectorTrimfiles,
-  "sff_file=s" => \$sff_file
-);
+  "sff_file=s" => \$sff_file);
+
 $folder_name="" . $folder_name;
 # to implemet make sure to change all ARGV
 
@@ -155,7 +155,7 @@ my @args_def= ('-o',"$paravals_internal[0]",
   '-nobig',
   '-vs',$vectorTrimfiles,
   '-vt',$vectorTrimfiles,  # hard code.....
-  $sff_file
+  '-p',$sff_file
   ); # hard code.....
 
 # relabel out from para_combo_gen to paravals
