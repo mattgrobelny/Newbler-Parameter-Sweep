@@ -57,12 +57,40 @@ Data analysis consists:
 - 14 boxplot graphs (comparing each input parameter against each score)
 - Analysis report, outputs a textual report of best parameter combinations for each score.
 
-#### To run this program you need to write parameters values in this order:
+### Basic Run- To run this script using default parameters, you need to pass in these three required parameter:
+#### The Basic Run uses built in DEFAULTS (see below) and provides the broadest range of iteration values.
+#### Required options
+	-projectName (Title of project will also be file name)
+	-vectorTrimfiles (adapter and vector sequences for trimming)
+	-sff_file (.sff file (demultiplexed) from sequencing)
 
-	-readlength_minimum -readlength_maximum -readlength_step -min_minoverlap -max_minoverlap -step_minoverlap -min_min_id -max_min_id -step_min_id -Projectname(will also be foldername) -vectortrimfiles -sff_file -PrintGraphs (TRUE or FALSE) -PrintRecommendedParameters (TRUE or FALSE)
+**Basic Run Example:**
+	perl runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ./bothtrimfiles.fasta -sff_file ./mid_MID1.sff
 
-##### Example:
-	perl runAssembly_PS.pl 15 45 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff TRUE TRUE
+#### Optional Options(1)- Use these parameters to tweak the range of parameter iteration and the step values
+##### Control iteration range for the read length parameter:
+	-readlength_Min  (Minimum read length cutoff- lowest value)			[Min accepted value: 15 || DEFAULT: 15]
+	-readlength_Max  (Minimum read length cutoff- highest value)		[Max accepted value: 45 || DEFAULT: 45]
+	-readlength_Step (Minimum read length cutoff- step value)				[Accepted value range: 1 to 10 || DEFAULT: 5]
+
+##### Control iteration range for the minimum overlap parameter:
+	-minoverlap_Min  (Minimum overlap length cutoff- lowest value) 	[Min accepted value: 15 || DEFAULT: 15]
+	-minoverlap_Max  (Minimum overlap length cutoff- highest value) [Max accepted value: 50 || DEFAULT: 50]
+	-minoverlap_Step (Minimum overlap length cutoff- step value) 		[Accepted value range: 1 to 10 || DEFAULT: 5]
+
+##### Control iteration range for the minimum overlap parameter:
+	-min_id_Min      (Identity percentage cutoff- lowest value) 		[Min accepted value: 50 || DEFAULT: 95]
+	-min_id_Max      (Identity percentage cutoff- highest value)		[Max accepted value: 45 || DEFAULT: 99]
+	-min_id_Step     (Identity percentage cutoff- step value)				[Accepted value range: 1 to 10 || DEFAULT: 1]
+
+#### Optional Options(2)- Use these parameters to run data analysis on assembly scores output
+	-printGraphs     						(TRUE or FALSE - prints 14 graphs) [DEFAULT: TRUE]
+	-printrecommendedParameters (TRUE or FALSE - outputs report with recommended parameter combinations)[DEFAULT: TRUE]
+
+
+##### Example Run Using all Parameters:
+
+	perl runAssembly_PS.pl -readlength_Min 20 -readlength_Max 30 -readlength_Step 1 -minoverlap_Min 20 -minoverlap_Max 30 -minoverlap_Step 1 -min_id_Min 95 -min_id_Max 99 -min_id_Step 1 -printGraphs  TRUE -printrecommendedParameters TRUE -projectName Project1 -vectorTrimfiles project1_vector_trim.fasta -sff_file mid1_Project1.sff
 
 ##### Recommend running in background:
 	nohup perl runAssembly_PS 15 45 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff TRUE TRUE &
@@ -74,3 +102,4 @@ Data analysis consists:
 - [x] Output scores report for each assembly and the corresponding parameter combination
 - [x] Perform analysis on scores report (print graphs)
 - [x] Suggest recommended assembly parameters for specific .sff file based on scores
+- [x] Improve Parameter parsing and add default parameters
