@@ -35,10 +35,9 @@
 
 1. This program takes the minimum, maximum and step value for each parameter:
 
-	```-read length
+	`-read length
 	-minimum overlap length
-	-minimum identity %
-	```
+	-minimum identity %`
 
 2. Then it will run parameters iterations from max values to minimum values by passing parameter combos into the runAssembly program (part of the Newbler package) until it fails to produce an assembly (usually happens at lower read length values).
 
