@@ -12,6 +12,7 @@
 - GS denovo Assembler (Newbler)
 - .sff file
 - vectortrimfiles.fasta
+- R (with ggplot2)
 
 #### Internal NEWBLER runAssembly Defaults
 - ss 1  --> seed step parameter
