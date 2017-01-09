@@ -44,7 +44,7 @@ To run this program you MUST write parameter in this order: \n
   -PrintGraphs (TRUE or FALSE) -PrintRecommendedParameters (TRUE or FALSE)\n
 
 ##### Example:\n
-	perl runAssembly_PS.pl 15 45 5 15 50 5 95 99 1 Project1 ../bothtrimfiles.fasta ../mid_MID1.sff TRUE TRUE\n
+perl runAssembly_PS.pl -readlength_Min 20 -readlength_Max 30 -readlength_Step 1 -minoverlap_Min 20 -minoverlap_Max 30 -minoverlap_Step 1 -min_id_Min 95 -min_id_Max 99 -min_id_Step 1 -printGraphs  TRUE -printrecommendedParameters TRUE -projectName Project1 -vectorTrimfiles ../project1_vector_trim.fasta -sff_file ../mid1_Project1.sff\n
 
 Some parameters where hard coded in the version... sorry if you dont see the parameter you want to iterate throught...\n
 
@@ -154,7 +154,7 @@ my @args_def= ('-o',"$paravals_internal[0]",
   '-force',
   #'-m',
   '-cpu','0',
-  '-tr',
+  #  '-tr',
   '-nobig',
   '-vs',$vectorTrimfiles,
   '-vt',$vectorTrimfiles,  # hard code.....
