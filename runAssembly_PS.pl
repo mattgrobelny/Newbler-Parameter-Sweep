@@ -33,6 +33,8 @@ Requires:\n
 
   -nobig --> do not output big files (ace, bam ...)\n\n
 
+  - tr --> output .fasta .qual of trimmed reads
+
 To run this program you MUST write parameter in this order: \n
 	\n
 	-readlength_minimum -readlength_maximum -readlength_step -min_minoverlap -max_minoverlap -step_minoverlap \n
@@ -152,6 +154,7 @@ my @args_def= ('-o',"$paravals_internal[0]",
   '-force',
   #'-m',
   '-cpu','0',
+  '-tr',
   '-nobig',
   '-vs',$vectorTrimfiles,
   '-vt',$vectorTrimfiles,  # hard code.....
