@@ -70,7 +70,7 @@ To run this script using default parameters, you will however need to pass in th
 
 #### Basic Run Command line Example:
 
-	perl runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ./bothtrimfiles.fasta -sff_file ./mid_MID1.sff
+	perl runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ../bothtrimfiles.fasta -sff_file ../mid_MID1.sff
 
 ## Optional Options
 Use these parameters to tweak the range of parameter iteration and the step values or turn on data analysis options
@@ -104,16 +104,16 @@ Use these parameters to run data analysis on assembly scores output:
 
 ##### Custom Run Using all Parameters:
 
-	perl runAssembly_PS.pl -readlength_Min 20 -readlength_Max 30 -readlength_Step 1 -minoverlap_Min 20 -minoverlap_Max 30 -minoverlap_Step 1 -min_id_Min 95 -min_id_Max 99 -min_id_Step 1 -printGraphs  TRUE -printrecommendedParameters TRUE -projectName Project1 -vectorTrimfiles project1_vector_trim.fasta -sff_file mid1_Project1.sff
+	perl runAssembly_PS.pl -readlength_Min 20 -readlength_Max 30 -readlength_Step 1 -minoverlap_Min 20 -minoverlap_Max 30 -minoverlap_Step 1 -min_id_Min 95 -min_id_Max 99 -min_id_Step 1 -printGraphs  TRUE -printrecommendedParameters TRUE -projectName Project1 -vectorTrimfiles ../project1_vector_trim.fasta -sff_file ../mid1_Project1.sff
 
 ##### Recommend running in background:
 Depending on the range of parameter combinations I recommend using 'nohup'  and '&' to redirect output to nohup.txt and run in background.
 
-	nohup perl runAssembly_PS.pl -readlength_Min 20 -readlength_Max 30 -readlength_Step 1 -minoverlap_Min 20 -minoverlap_Max 30 -minoverlap_Step 1 -min_id_Min 95 -min_id_Max 99 -min_id_Step 1 -printGraphs  TRUE -printrecommendedParameters TRUE -projectName Project1 -vectorTrimfiles project1_vector_trim.fasta -sff_file mid1_Project1.sff &
+	nohup perl runAssembly_PS.pl -readlength_Min 20 -readlength_Max 30 -readlength_Step 1 -minoverlap_Min 20 -minoverlap_Max 30 -minoverlap_Step 1 -min_id_Min 95 -min_id_Max 99 -min_id_Step 1 -printGraphs  TRUE -printrecommendedParameters TRUE -projectName Project1 -vectorTrimfiles ../project1_vector_trim.fasta -sff_file ../mid1_Project1.sff &
 
 *or using the DEFAULT run:*
 
-	nohup perl runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ./bothtrimfiles.fasta -sff_file ./mid_MID1.sff &
+	nohup perl runAssembly_PS.pl -projectName Project2 -vectorTrimfiles ../bothtrimfiles.fasta -sff_file ../mid_MID1.sff &
 
 
 *Some parameters where hard coded in the version... sorry if you do not see the parameter you want to iterate through...*
