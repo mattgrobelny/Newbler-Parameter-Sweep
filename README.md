@@ -53,7 +53,7 @@
 	INPUT-->  Parameters : Readlength, Overlap, Id
 
 	OUTPUT--> Scores for each assembly: numberOfContigs, numberOfBases, avgContigSize, N50ContigSize, largestContigSize
- ```
+	```  
 4. By default, the script will preform basic data analysis by printing:
 - 14 boxplot graphs (comparing each input parameter against each score)
 - Analysis report, outputs a textual report of best parameter combinations for based on each score (numberOfContigs, numberOfBases, avgContigSize, N50ContigSize, largestContigSize).
